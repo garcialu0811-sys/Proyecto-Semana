@@ -60,19 +60,7 @@ router.get('/:slug', auth, async (req, res) => {
     const quizzes = await Quiz.find({ courseSlug: slug }).sort({ lessonNumber: 1, quizNumber: 1 });
     const project = await Project.findOne({ courseSlug: slug });
     
-    let progress = await Progress.findOne({ userId: req.user.id, courseSlug: slug });
-    if (!progress) {
-      progress = new Progress({
-        userId: req.user.id,
-        courseSlug: slug,
-        lessonsCompleted: [],
-        exercisesCompleted: [],
-        quizzesCompleted: [],
-        projectSubmitted: false,
-        projectScore: 0
-      });
-      await progress.save();
-    }
+    const progress = await Progress.findOne({ userId: req.user.id, courseSlug: slug });
 
     res.json({
       course,
@@ -80,7 +68,16 @@ router.get('/:slug', auth, async (req, res) => {
       exercises,
       quizzes,
       project,
-      progress
+      progress: progress ? progress.toObject() : {
+        userId: req.user.id,
+        courseSlug: slug,
+        lessonsCompleted: [],
+        exercisesCompleted: [],
+        quizzesCompleted: [],
+        projectSubmitted: false,
+        projectScore: 0,
+        projectCode: ''
+      }
     });
   } catch (err) {
     console.error(err);

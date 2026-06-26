@@ -10,18 +10,81 @@ function getUrlParams() {
   currentLessonNum = parseInt(parts[4]) || 1;
 }
 
-// Custom objectives map for HTML lessons to look premium and authentic
-const LESSON_OBJECTIVES = {
-  1: ["Entender qué es HTML y sus bloques", "Conocer las etiquetas más comunes", "Crear tu primer archivo web"],
-  2: ["Dominar la estructura <!DOCTYPE>", "Configurar head, title y body", "Vincular archivos externos"],
-  3: ["Uso correcto de encabezados h1-h6", "Formatear párrafos con texto", "Aprender saltos de línea y separadores"],
-  4: ["Insertar imágenes con etiqueta img", "Configurar rutas relativas y absolutas", "Añadir texto alternativo alt para accesibilidad"],
-  5: ["Crear hipervínculos con anclas a", "Dominar el atributo href", "Abrir enlaces en pestañas nuevas"],
-  6: ["Crear listas ordenadas y desordenadas", "Estructurar tablas con tr y td", "Organizar datos jerárquicamente"],
-  7: ["Construir formularios de registro", "Añadir inputs de texto, email y password", "Utilizar botones de envío tipo submit"],
-  8: ["Agrupar elementos con etiquetas div", "Uso de span para textos específicos", "Preparar la estructura para aplicar CSS"],
-  9: ["Uso correcto de comentarios de código", "Documentar secciones importantes", "Buenas prácticas de indentación"]
-};
+function getLessonObjectives(lesson, courseSlug) {
+  const courseObjectives = {
+    html: {
+      1: ["Entender qué es HTML y sus bloques", "Conocer las etiquetas más comunes", "Crear tu primer archivo web"],
+      2: ["Dominar la estructura <!DOCTYPE>", "Configurar head, title y body", "Vincular archivos externos"],
+      3: ["Uso correcto de encabezados h1-h6", "Formatear párrafos con texto", "Aprender saltos de línea y separadores"],
+      4: ["Insertar imágenes con etiqueta img", "Configurar rutas relativas y absolutas", "Añadir texto alternativo alt para accesibilidad"],
+      5: ["Crear hipervínculos con anclas a", "Dominar el atributo href", "Abrir enlaces en pestañas nuevas"],
+      6: ["Crear listas ordenadas y desordenadas", "Estructurar tablas con tr y td", "Organizar datos jerárquicamente"],
+      7: ["Construir formularios de registro", "Añadir inputs de texto, email y password", "Utilizar botones de envío tipo submit"],
+      8: ["Agrupar elementos con etiquetas div", "Uso de span para textos específicos", "Preparar la estructura para aplicar CSS"],
+      9: ["Uso correcto de comentarios de código", "Documentar secciones importantes", "Buenas prácticas de indentación"]
+    },
+    css: {
+      1: ["Entender qué es CSS y para qué sirve", "Aplicar estilos básicos a una página", "Reconocer la separación entre contenido y diseño"],
+      2: ["Seleccionar elementos con clases y selectores", "Aplicar colores de forma correcta", "Identificar la diferencia entre ID y clase"],
+      3: ["Comprender el modelo de caja", "Controlar márgenes, bordes y relleno", "Diseñar bloques con medidas consistentes"]
+    },
+    js: {
+      1: ["Entender variables y constantes", "Trabajar con tipos de datos básicos", "Guardar información en memoria"],
+      2: ["Tomar decisiones con condicionales", "Controlar el flujo del programa", "Evaluar condiciones con lógica"],
+      3: ["Declarar funciones reutilizables", "Pasar parámetros y devolver valores", "Organizar tareas de forma modular"]
+    },
+    react: {
+      1: ["Crear componentes reutilizables", "Entender JSX y renderizado", "Separar la interfaz en piezas claras"],
+      2: ["Enviar datos con props", "Configurar componentes de forma dinámica", "Componer interfaces con parámetros"],
+      3: ["Gestionar estado en componentes", "Actualizar datos con useState", "Responder a cambios del usuario"]
+    },
+    node: {
+      1: ["Entender el entorno de Node.js", "Crear un servidor básico", "Manejar peticiones del cliente"],
+      2: ["Usar módulos y archivos locales", "Organizar el proyecto en partes", "Gestionar recursos del backend"],
+      3: ["Construir lógica del servidor", "Implementar rutas y respuestas", "Conectar el backend con la lógica de negocio"]
+    },
+    mongodb: {
+      1: ["Entender documentos y colecciones", "Aprender cómo se almacenan los datos", "Reconocer el modelo NoSQL"],
+      2: ["Crear consultas básicas en MongoDB", "Filtrar documentos en colecciones", "Aplicar condiciones a las búsquedas"],
+      3: ["Modelar datos con Mongoose", "Definir esquemas y validaciones", "Conectar MongoDB con Node.js"]
+    },
+    express: {
+      1: ["Crear una API sencilla con Express", "Definir rutas del servidor", "Responder a peticiones HTTP"],
+      2: ["Gestionar middleware", "Controlar solicitudes y respuestas", "Organizar endpoints de forma limpia"],
+      3: ["Construir APIs más completas", "Implementar controladores y operaciones", "Separar la lógica en módulos"]
+    },
+    api: {
+      1: ["Comprender el concepto de API REST", "Diferenciar endpoints y recursos", "Enviar peticiones a servicios externos"],
+      2: ["Trabajar con métodos HTTP", "Gestionar parámetros y respuestas", "Diseñar recursos de forma clara"],
+      3: ["Integrar APIs en proyectos reales", "Procesar respuestas y errores", "Construir flujos de datos funcionales"]
+    },
+    proyecto: {
+      1: ["Integrar todos los conocimientos del curso", "Diseñar una solución completa", "Organizar el proyecto final paso a paso"],
+      2: ["Conectar frontend y backend", "Implementar la lógica del proyecto", "Resolver problemas de integración"],
+      3: ["Pulir y entregar tu proyecto final", "Corregir errores y mejorar UX", "Presentar una solución completa"]
+    }
+  };
+
+  const objectivesForLesson = courseObjectives[courseSlug]?.[lesson.lessonNumber];
+  if (objectivesForLesson && objectivesForLesson.length) {
+    return objectivesForLesson;
+  }
+
+  if (lesson.conceptToLearn) {
+    const concept = lesson.conceptToLearn
+      .replace(/<[^>]*>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    return [
+      concept,
+      `Aplicar ${lesson.title.replace(/^\d+\.\s*/, '')} en ejercicios prácticos`,
+      'Completar el reto del curso con lo aprendido'
+    ];
+  }
+
+  return ["Aprender conceptos clave de este bloque", "Resolver ejercicios prácticos", "Desbloquear recompensas"];
+}
 
 async function loadLessonData() {
   getUrlParams();
@@ -62,7 +125,7 @@ async function loadLessonData() {
   // Set objectives
   const objectivesContainer = document.getElementById('lesson-objectives');
   objectivesContainer.innerHTML = '';
-  const objectivesList = LESSON_OBJECTIVES[lesson.lessonNumber] || ["Aprender conceptos de este bloque", "Resolver ejercicios prácticos", "Desbloquear recompensas"];
+  const objectivesList = getLessonObjectives(lesson, currentSlug);
   objectivesList.forEach(obj => {
     const li = document.createElement('li');
     li.innerText = obj;
