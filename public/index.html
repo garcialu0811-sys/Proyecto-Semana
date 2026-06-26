@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyraCode — Minecraft Coding Adventure</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/landing.css">
+</head>
+<body>
+  <div id="particles-container"></div>
+  
+  <div class="landing-hero">
+    <!-- Parallax backgrounds drawn with pure CSS styling -->
+    <div class="bg-sky"></div>
+    <div class="bg-stars"></div>
+    <div class="bg-moon float-anim"></div>
+    <div class="bg-mist"></div>
+    <div class="bg-forest"></div>
+    <div class="bg-river"></div>
+    <div class="bg-village"></div>
+
+    <div class="hero-content fade-in">
+      <div class="logo-container">
+        <div class="logo-cube">
+          <div class="cube-face top"></div>
+          <div class="cube-face front"></div>
+          <div class="cube-face right"></div>
+        </div>
+        <h1 class="logo-text">LyraCode</h1>
+      </div>
+      
+      <h2 class="hero-title">COMIENCE SU<br><span class="highlight">Coding Adventure</span></h2>
+      <p class="hero-subtitle">La forma más divertida y accesible para principiantes de aprender a programar. ✦</p>
+
+      <div class="hero-actions">
+        <a href="/login?tab=register" class="mc-btn green">Comenzar aventura</a>
+        <div class="auth-buttons">
+          <a href="/login?tab=login" class="mc-btn">Iniciar sesión</a>
+          <a href="/login?tab=register" class="mc-btn gold">Registrarse</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/particles.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Spawn nice green/purple night sparks
+      setInterval(() => {
+        const x = Math.random() * window.innerWidth;
+        const y = window.innerHeight * 0.7 + Math.random() * 100;
+        spawnParticles(x, y, Math.random() > 0.5 ? '#10b981' : '#7c3aed', 3);
+      }, 500);
+    });
+  </script>
+</body>
+</html>

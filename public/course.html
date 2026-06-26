@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyraCode — Detalles del Curso</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/courses.css">
+  <link rel="stylesheet" href="/css/course.css">
+</head>
+<body>
+  <div id="particles-container"></div>
+
+  <!-- Main Layout Wrapper -->
+  <div class="dashboard-wrapper">
+
+    <!-- Left Sidebar (Same unifed sidebar design!) -->
+    <aside class="left-sidebar">
+      <div class="sidebar-logo" onclick="window.location.href='/'">
+        <div class="creeper-logo-icon"></div>
+        <span class="logo-title">LyraCode</span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="/courses" class="menu-item" id="nav-courses">
+          <span class="menu-icon icon-house-pixel"></span>
+          <span>Inicio</span>
+        </a>
+        <a href="/rutas" class="menu-item active" id="nav-routes">
+          <span class="menu-icon icon-map-pixel"></span>
+          <span>Rutas</span>
+        </a>
+        <a href="/misiones" class="menu-item" id="nav-missions">
+          <span class="menu-icon icon-sword-pixel"></span>
+          <span>Misiones</span>
+        </a>
+        <a href="/perfil" class="menu-item" id="nav-profile">
+          <span class="menu-icon icon-gear-pixel"></span>
+          <span>Ajustes</span>
+        </a>
+      </nav>
+
+      <!-- Daily Streak Sidebar Panel -->
+      <div class="streak-panel">
+        <div class="streak-header">
+          <strong>Racha diaria 🔥</strong>
+        </div>
+        <div class="streak-days">4 días</div>
+        <div class="streak-progress">
+          <div class="streak-block active"></div>
+          <div class="streak-block active"></div>
+          <div class="streak-block active"></div>
+          <div class="streak-block"></div>
+          <div class="streak-chest"></div>
+        </div>
+        <span class="streak-footer">¡Sigue así!</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel Area -->
+    <div class="main-content">
+      
+      <!-- Top Stats Header -->
+      <header class="top-stats-header">
+        <div class="stats-right">
+          <div class="stat-item">
+            <span class="icon icon-coin"></span>
+            <span id="stat-coins">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="icon icon-gem"></span>
+            <span id="stat-gems">0</span>
+          </div>
+          <div class="stat-item user-level-stat">
+            <span class="level-badge" id="stat-level">Nivel 1</span>
+            <div class="xp-bar-container">
+              <div class="xp-bar-fill" id="stat-xp-bar"></div>
+            </div>
+            <span id="stat-xp">0 XP</span>
+          </div>
+          <img class="navbar-avatar" id="stat-avatar" src="" alt="Avatar" title="Cerrar Sesión" onclick="logout()">
+        </div>
+      </header>
+
+      <!-- Content Grid -->
+      <main class="dashboard-grid">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb-nav">
+          <a href="/courses">Rutas</a> <span class="breadcrumb-separator">&gt;</span> 
+          <span>Desarrollo Web</span> <span class="breadcrumb-separator">&gt;</span> 
+          <span class="active-crumb" id="breadcrumb-course-name">HTML</span>
+        </nav>
+
+        <!-- Course Header Panel -->
+        <section class="course-header-card mc-panel">
+          <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/GRASS_BLOCK.png" alt="HTML" class="course-details-large-icon" id="course-main-icon">
+          <div class="course-details-text">
+            <h1 class="course-details-title" id="course-title">HTML</h1>
+            <h2 class="course-details-subtitle" id="course-subtitle">Construye las bases de la web</h2>
+            <p class="course-details-desc" id="course-desc">Aprende HTML desde cero y crea la estructura de tus páginas web.</p>
+          </div>
+        </section>
+
+        <!-- Course Layout Columns Grid -->
+        <div class="course-details-grid">
+          
+          <!-- Left Column (Stats & Progress) -->
+          <div class="left-stats-column">
+            
+            <!-- Overall Progress Card -->
+            <div class="progress-info-card mc-panel">
+              <h3>Progreso General</h3>
+              <div class="progress-percent-large" id="course-progress-percent">0% completado</div>
+              <div class="course-route-progress-bar" style="height: 10px; background: #050a12; border-radius: 5px; overflow: hidden; border: 1.5px solid #1b2d3d; margin-top: 12px;">
+                <div class="course-route-progress-fill" id="course-progress-fill" style="width: 0%; height: 100%; background: #63ff3f; box-shadow: 0 0 10px rgba(99, 255, 63, 0.5);"></div>
+              </div>
+            </div>
+
+            <!-- Stats Subgrid (4 Cards) -->
+            <div class="stats-subgrid">
+              
+              <!-- Stat Card 1: Lecciones -->
+              <div class="stat-detail-card mc-panel" id="card-lessons">
+                <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/GRASS_BLOCK.png" alt="Lecciones" class="stat-detail-icon">
+                <div class="stat-detail-info">
+                  <h4>Lecciones</h4>
+                  <span class="stat-detail-count" id="lessons-count">0 de 9</span>
+                </div>
+              </div>
+
+              <!-- Stat Card 2: Ejercicios -->
+              <div class="stat-detail-card mc-panel" id="card-exercises">
+                <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/DIAMOND_PICKAXE.png" alt="Ejercicios" class="stat-detail-icon">
+                <div class="stat-detail-info">
+                  <h4>Ejercicios</h4>
+                  <span class="stat-detail-count" id="exercises-count">0 de 3</span>
+                </div>
+              </div>
+
+              <!-- Stat Card 3: Quizzes -->
+              <div class="stat-detail-card mc-panel" id="card-quizzes">
+                <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/OBSIDIAN.png" alt="Quizzes" class="stat-detail-icon">
+                <div class="stat-detail-info">
+                  <h4>Quizzes</h4>
+                  <span class="stat-detail-count" id="quizzes-count">0 de 1</span>
+                </div>
+              </div>
+
+              <!-- Stat Card 4: Proyecto Final -->
+              <div class="stat-detail-card mc-panel" id="card-project">
+                <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/CRAFTING_TABLE.png" alt="Proyecto final" class="stat-detail-icon">
+                <div class="stat-detail-info">
+                  <h4>Proyecto Final</h4>
+                  <span class="stat-detail-count" id="project-count">0 de 1</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Course Reward section -->
+            <div class="rewards-card mc-panel">
+              <h3>Recompensas del Curso</h3>
+              <div class="rewards-list-horizontal">
+                <div class="reward-pill">
+                  <span class="reward-icon icon-gem" style="background-color: transparent; filter: brightness(1.2);"></span>
+                  <span>+1000 XP</span>
+                </div>
+                <div class="reward-pill">
+                  <span class="reward-icon icon-coin"></span>
+                  <span>+150 Monedas</span>
+                </div>
+                <div class="reward-pill">
+                  <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/EMERALD.png" alt="Esmeraldas" class="reward-pill-image">
+                  <span>+10 Esmeraldas</span>
+                </div>
+                <div class="reward-pill">
+                  <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/CHEST.png" alt="Cofre Epico" class="reward-pill-image">
+                  <span>Cofre Épico</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column (Steve Companion Scene) -->
+          <div class="illustration-column mc-panel">
+            <div class="steve-reading-scene">
+              <div class="scene-caption">
+                <p>Steve está repasando su libro de recetas de HTML en la fogata. Su lobo compañero vigila los alrededores de la aldea.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/particles.js"></script>
+  <script src="/js/course.js"></script>
+</body>
+</html>

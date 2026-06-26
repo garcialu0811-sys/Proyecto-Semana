@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyraCode — Acceso a la aventura</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+  <div id="particles-container"></div>
+
+  <!-- Header with language option -->
+  <header class="top-header">
+    <div class="lang-dropdown">
+      <span class="icon-lang"></span>
+      <span>Español</span>
+      <span class="arrow-down">▼</span>
+    </div>
+  </header>
+
+  <!-- Split Screen Layout -->
+  <div class="split-container fade-in">
+    
+    <!-- Left Hero Column (60%) -->
+    <div class="login-hero">
+      <div class="logo-box">
+        <div class="creeper-logo-icon"></div>
+        <h1 class="logo-title">LyraCode</h1>
+      </div>
+      <p class="logo-subtitle">Aprende. Programa. Aventura.</p>
+
+      <!-- Features checklist list -->
+      <ul class="hero-features-list">
+        <li>
+          <span class="feature-icon icon-sword-pixel"></span>
+          <span>Domina habilidades de programación</span>
+        </li>
+        <li>
+          <span class="feature-icon icon-pickaxe-pixel"></span>
+          <span>Completa misiones y desafíos</span>
+        </li>
+        <li>
+          <span class="feature-icon icon-diamond-pixel"></span>
+          <span>Gana recompensas épicas</span>
+        </li>
+        <li>
+          <span class="feature-icon icon-chest-pixel"></span>
+          <span>Construye tu futuro en código</span>
+        </li>
+      </ul>
+
+      <!-- Community mini panel -->
+      <div class="community-mini-panel">
+        <h4>Únete a miles de LyraCoders</h4>
+        <div class="avatars-row">
+          <span class="avatar-head steve-head"></span>
+          <span class="avatar-head alex-head"></span>
+          <span class="avatar-head zombie-head"></span>
+          <span class="avatar-head creeper-head"></span>
+          <span class="avatar-head enderman-head"></span>
+          <span class="avatar-head villager-head"></span>
+          <span class="avatar-head skeleton-head"></span>
+        </div>
+        <p>¡La aventura del conocimiento te espera!</p>
+      </div>
+    </div>
+
+    <!-- Right Form Column (40%) -->
+    <div class="login-form-wrapper">
+      <div class="mc-panel auth-panel">
+        <!-- Pixel decorations at top corners -->
+        <span class="pixel-decor top-left"></span>
+        <span class="pixel-decor top-right"></span>
+
+        <h2 id="auth-title" class="form-title">¡Bienvenido de vuelta!</h2>
+        <p id="auth-subtitle" class="form-subtitle">Inicia sesión para continuar tu aventura</p>
+
+        <!-- Dynamic server error box -->
+        <div class="error-msg" id="error-box" style="display: none;"></div>
+
+        <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+          <!-- Username (Register only, hidden by default) -->
+          <div class="input-group" id="group-username" style="display: none;">
+            <label for="username">Nombre de Usuario</label>
+            <div class="input-container">
+              <span class="input-icon icon-user-field"></span>
+              <input type="text" id="username" class="mc-input" placeholder="Tu nombre (ej. Steve)">
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="input-group">
+            <label for="email">Correo electrónico</label>
+            <div class="input-container">
+              <span class="input-icon icon-email-field"></span>
+              <input type="email" id="email" class="mc-input" required placeholder="tu@correo.com">
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="input-group">
+            <label for="password">Contraseña</label>
+            <div class="input-container">
+              <span class="input-icon icon-lock-field"></span>
+              <input type="password" id="password" class="mc-input" required placeholder="Tu contraseña">
+              <span class="toggle-password-icon"></span>
+            </div>
+          </div>
+
+          <!-- Options -->
+          <div class="form-options">
+            <label class="checkbox-container">
+              <input type="checkbox" checked>
+              <span class="checkmark-box"></span>
+              <span>Recordarme</span>
+            </label>
+            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="mc-btn green w-100 play-btn" id="submit-btn">
+            + INICIAR SESIÓN +
+          </button>
+        </form>
+
+        <p class="auth-switch" id="auth-switch-link">
+          ¿No tienes una cuenta? <a href="#" onclick="switchTab('register'); return false;">Únete a LyraCode</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom features bar -->
+  <footer class="bottom-features-bar">
+    <div class="feature-badge">
+      <span class="bottom-icon icon-sword-pixel"></span>
+      <div class="badge-text">
+        <strong>Rutas Interactivas</strong>
+        <span>Aprende jugando</span>
+      </div>
+    </div>
+    <div class="feature-badge">
+      <span class="bottom-icon icon-grass-pixel"></span>
+      <div class="badge-text">
+        <strong>Proyectos Reales</strong>
+        <span>Crea cosas increíbles</span>
+      </div>
+    </div>
+    
+    <!-- Welcome chest promo card -->
+    <div class="welcome-reward-card">
+      <span class="promo-chest-icon"></span>
+      <div class="promo-text">
+        <strong>¡Recompensa de bienvenida!</strong>
+        <span>Únete ahora y recibe un cofre épico</span>
+      </div>
+      <span class="promo-arrow">❯</span>
+    </div>
+  </footer>
+  <script src="/js/api.js"></script>
+  <script src="/js/particles.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

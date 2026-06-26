@@ -1,0 +1,18 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" style="background-color:%230f172a;">
+  <!-- Stars -->
+  <circle cx="50" cy="30" r="1" fill="%23fff" opacity="0.8"/>
+  <circle cx="150" cy="50" r="1.5" fill="%23fff" opacity="0.6"/>
+  <circle cx="300" cy="20" r="1" fill="%23fff" opacity="0.9"/>
+  <circle cx="450" cy="60" r="1.5" fill="%23fff" opacity="0.5"/>
+  <circle cx="600" cy="30" r="1" fill="%23fff" opacity="0.7"/>
+  <circle cx="750" cy="45" r="1.5" fill="%23fff" opacity="0.6"/>
+  <!-- Moon -->
+  <rect x="680" y="20" width="30" height="30" fill="%23e2e8f0" rx="2" style="filter:drop-shadow(0 0 10px %23fff);"/>
+  <!-- Forest Silhouettes -->
+  <!-- Back trees layer -->
+  <path d="M0 200 L50 140 L100 200 M80 200 L140 120 L200 200 M180 200 L230 150 L280 200 M320 200 L390 110 L460 200 M450 200 L500 130 L550 200 M600 200 L660 120 L720 200 M700 200 L760 130 L800 200" fill="%2314532d" opacity="0.5"/>
+  <!-- Front trees layer -->
+  <path d="M30 200 L90 130 L150 200 M120 200 L180 110 L240 200 M250 200 L310 120 L370 200 M390 200 L470 100 L550 200 M520 200 L590 120 L660 200 M680 200 L740 110 L800 200" fill="%23166534" opacity="0.8"/>
+  <!-- Ground -->
+  <rect x="0" y="180" width="800" height="20" fill="%2315803d"/>
+</svg>

@@ -1,0 +1,92 @@
+/* Global Variables & Theme */
+:root {
+  --color-bg: #d0ecfc;
+  --color-surface: #f0f7ff;
+  --color-surface-hover: #e1effe;
+  --color-border: #a2d2ff;
+  
+  --color-mc-green: #2e7d32;
+  --color-mc-green-light: #4caf50;
+  --color-mc-green-dark: #1b5e20;
+  
+  --color-mc-dirt: #866043;
+  --color-mc-wood: #ab7f58;
+  --color-mc-stone: #787c85;
+  
+  --color-gold: #d97706;
+  --color-diamond: #0288d1;
+  --color-emerald: #059669;
+  --color-redstone: #dc2626;
+  --color-end: #6d28d9;
+  
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-vt: 'VT323', monospace;
+  --font-body: 'Inter', sans-serif;
+  
+  --mc-shadow: 0 4px 0 #000;
+  --mc-border-radius: 4px;
+}
+
+/* Reset & Scrollbars */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(rgba(208, 236, 252, 0.3), rgba(208, 236, 252, 0.3)), url('/assets/minecraft_sky_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: var(--color-bg);
+  color: #1f2937;
+  font-family: var(--font-body);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-pixel);
+  letter-spacing: 1px;
+}
+
+a {
+  color: var(--color-diamond);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #000;
+  text-shadow: 0 0 8px rgba(15, 118, 110, 0.3);
+}
+
+/* Custom Minecraft Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-left: 2px solid #ccd1d9;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-mc-stone);
+  border: 2px solid #111;
+  box-shadow: inset 2px 2px 0 #a9adbe, inset -2px -2px 0 #4e4e55;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* Particle Canvas Overlay */
+#particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}

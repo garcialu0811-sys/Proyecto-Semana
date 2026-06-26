@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyraCode — Misiones y Desafíos</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/courses.css">
+  <link rel="stylesheet" href="/css/missions.css">
+</head>
+<body>
+  <div id="particles-container"></div>
+
+  <!-- Main Layout Wrapper -->
+  <div class="dashboard-wrapper">
+
+    <!-- Left Sidebar (Unified styling!) -->
+    <aside class="left-sidebar">
+      <div class="sidebar-logo" onclick="window.location.href='/'">
+        <div class="creeper-logo-icon"></div>
+        <span class="logo-title">LyraCode</span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="/courses" class="menu-item" id="nav-courses">
+          <span class="menu-icon icon-house-pixel"></span>
+          <span>Inicio</span>
+        </a>
+        <a href="/rutas" class="menu-item" id="nav-routes">
+          <span class="menu-icon icon-map-pixel"></span>
+          <span>Rutas</span>
+        </a>
+        <a href="/misiones" class="menu-item active" id="nav-missions">
+          <span class="menu-icon icon-sword-pixel"></span>
+          <span>Misiones</span>
+        </a>
+        <a href="/perfil" class="menu-item" id="nav-profile">
+          <span class="menu-icon icon-gear-pixel"></span>
+          <span>Ajustes</span>
+        </a>
+      </nav>
+
+      <!-- Daily Streak Sidebar Panel -->
+      <div class="streak-panel">
+        <div class="streak-header">
+          <strong>Racha diaria 🔥</strong>
+        </div>
+        <div class="streak-days" id="sidebar-streak-days">4 días</div>
+        <div class="streak-progress" id="sidebar-streak-progress">
+          <!-- Rendered dynamically -->
+        </div>
+        <span class="streak-footer">¡Sigue así!</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel Area -->
+    <div class="main-content">
+      
+      <!-- Top Stats Header (Stats Navbar) -->
+      <header class="top-stats-header">
+       
+
+        <div class="stats-right">
+          <div class="stat-item">
+            <span class="icon icon-coin"></span>
+            <span id="stat-coins">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="icon icon-gem"></span>
+            <span id="stat-gems">0</span>
+          </div>
+          <div class="stat-item user-level-stat">
+            <span class="level-badge" id="stat-level">Nivel 1</span>
+            <div class="xp-bar-container">
+              <div class="xp-bar-fill" id="stat-xp-bar"></div>
+            </div>
+            <span id="stat-xp">0 XP</span>
+          </div>
+          <img class="navbar-avatar" id="stat-avatar" src="" alt="Avatar" title="Cerrar Sesión" onclick="logout()">
+        </div>
+      </header>
+
+      <!-- Content Grid -->
+      <main class="dashboard-grid">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb-nav">
+          <a href="/courses">Inicio</a> <span class="breadcrumb-separator">&gt;</span> 
+          <span class="active-crumb">Misiones</span>
+        </nav>
+
+        <!-- Main Layout panel -->
+        <div class="missions-dashboard-wrapper mc-panel">
+          
+          <!-- Header Banner (Sword + Text + Hero Scene) -->
+          <div class="missions-header-banner" id="missions-header-banner">
+            <div class="header-banner-left">
+              <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/IRON_SWORD.png" alt="Espada" class="banner-sword-icon">
+              <div class="banner-titles">
+                <h1 class="banner-title" id="banner-title-text">Misiones</h1>
+                <p class="banner-subtitle" id="banner-subtitle-text">Completa misiones diarias para ganar XP, monedas y recompensas épicas.</p>
+              </div>
+            </div>
+
+            <!-- Right Hero Landscape (Dynamic) -->
+            <div class="header-hero-landscape" id="header-hero-landscape">
+              <!-- Dynamically populated scene (Steve/Campfire or Nether Portal) -->
+            </div>
+          </div>
+
+          <!-- Tabs Selector -->
+          <div class="missions-tabs-container">
+            <div class="missions-tab-list">
+              <button class="mission-tab-btn active" data-tab="diarias">Diarias</button>
+              <button class="mission-tab-btn" data-tab="semanales">Semanales</button>
+              <button class="mission-tab-btn" data-tab="desafios">Desafíos</button>
+              <button class="mission-tab-btn" data-tab="logros">Logros</button>
+            </div>
+            
+            <!-- Countdown Info / Timer row -->
+            <div class="timer-countdown-row" id="timer-countdown-row">
+              <!-- Dynamically rendered (e.g. Nuevas misiones en: 12h 45m) -->
+            </div>
+          </div>
+
+          <!-- Dynamic Tab Content Workspace -->
+          <div class="missions-workspace-content" id="missions-workspace-content">
+            <!-- Loaded dynamically via JavaScript -->
+          </div>
+
+          <!-- Dynamic Bottom Reward Panel -->
+          <div class="missions-bottom-reward-bar" id="missions-bottom-reward-bar">
+            <!-- Loaded dynamically via JavaScript -->
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/particles.js"></script>
+  <script src="/js/missions.js?v=3"></script>
+</body>
+</html>

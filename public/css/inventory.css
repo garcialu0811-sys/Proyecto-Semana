@@ -1,0 +1,180 @@
+/* LyraCode Inventory & Shop Stylesheet */
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 20px;
+}
+
+@media(max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  .right-sidebar {
+    display: none;
+  }
+}
+
+.inventory-tabs {
+  display: flex;
+  gap: 12px;
+  border-bottom: 3px solid #202b3e;
+  margin-bottom: 24px;
+}
+
+.inventory-tab {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.inventory-tab.active {
+  color: #fff;
+  border-bottom: 3px solid var(--color-mc-green-light);
+  margin-bottom: -3px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Shop Cards Grid */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Item Card */
+.item-card {
+  background-color: var(--color-surface);
+  border: 3px solid #202b3e;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Rarity border coloring */
+.item-card.comun { border-color: #64748b; }
+.item-card.raro { border-color: #3b82f6; box-shadow: 0 0 8px rgba(59, 130, 246, 0.4); }
+.item-card.epico { border-color: var(--color-end); box-shadow: 0 0 10px rgba(124, 58, 237, 0.5); }
+.item-card.legendario { border-color: var(--color-gold); box-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
+
+.item-badge {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #000;
+}
+
+.item-badge.comun { background-color: #cbd5e1; }
+.item-badge.raro { background-color: #93c5fd; }
+.item-badge.epico { background-color: #c084fc; }
+.item-badge.legendario { background-color: #fde047; }
+
+.item-icon-box {
+  width: 56px;
+  height: 56px;
+  background-color: #0d1117;
+  border: 2px solid #000;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  box-shadow: inset 2px 2px 0 rgba(0,0,0,0.5);
+}
+
+.item-icon {
+  width: 36px;
+  height: 36px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+/* Shop SVGs */
+.icon-alex {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%23e0a078'/%3E%3Crect x='0' y='0' width='8' height='3' fill='%23e06000'/%3E%3Crect x='1' y='4' width='1' height='1' fill='%23fff'/%3E%3Crect x='2' y='4' width='1' height='1' fill='%2300aa55'/%3E%3C/svg%3E");
+}
+.icon-zombie {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%23508050'/%3E%3Crect x='1' y='4' width='2' height='1' fill='%2390ff90'/%3E%3C/svg%3E");
+}
+.icon-enderman {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%23161616'/%3E%3Crect x='1' y='4' width='2' height='1' fill='%23cc00cc'/%3E%3C/svg%3E");
+}
+.icon-wolf {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%23d1d1d1'/%3E%3Crect x='1' y='4' width='1' height='1' fill='%23000'/%3E%3Crect x='3' y='5' width='2' height='2' fill='%239e2a2b'/%3E%3C/svg%3E");
+}
+.icon-slime_pet {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%2370c070'/%3E%3Crect x='1' y='3' width='2' height='2' fill='%23104010'/%3E%3C/svg%3E");
+}
+.icon-iron_chest {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23cccccc'/%3E%3Crect x='7' y='6' width='2' height='3' fill='%23333333'/%3E%3C/svg%3E");
+}
+.icon-diamond_chest {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%234deeea'/%3E%3Crect x='7' y='6' width='2' height='3' fill='%2392400e'/%3E%3C/svg%3E");
+}
+
+.item-name {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.item-desc {
+  font-size: 12px;
+  color: var(--color-muted);
+  line-height: 1.4;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+
+.price-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-vt);
+  font-size: 18px;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+}
+
+.item-action-btn {
+  width: 100%;
+}
+
+/* Sidebar pet viewer box */
+.pet-avatar-box {
+  background-color: #0b0f19;
+  border: 3px solid #202b3e;
+  padding: 20px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 15px auto;
+}
+.pet-avatar-box svg {
+  margin: 0 auto;
+}

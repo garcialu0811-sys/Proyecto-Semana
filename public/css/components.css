@@ -1,0 +1,316 @@
+/* Minecraft UI Base Components */
+
+/* Layout & Grid */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Minecraft Panels (Cards) */
+.mc-panel {
+  background: rgba(240, 247, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 3px solid #162a45;
+  box-shadow: 
+    inset 3px 3px 0 rgba(255, 255, 255, 0.7), 
+    inset -3px -3px 0 rgba(162, 210, 255, 0.4),
+    0 8px 32px rgba(2, 136, 209, 0.12);
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+}
+
+/* Panel Variations */
+.mc-panel.stone {
+  background-color: #4a4a4a;
+  border-color: #1a1a1a;
+  box-shadow: inset 4px 4px 0 #737373, inset -4px -4px 0 #2a2a2a, var(--mc-shadow);
+}
+
+.mc-panel.dirt {
+  background-color: #573d26;
+  border-color: #271a0e;
+  box-shadow: inset 4px 4px 0 #7e5a3c, inset -4px -4px 0 #352313, var(--mc-shadow);
+}
+
+/* Minecraft Button (The Classic Bevel) */
+.mc-btn {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: #e2e8f0;
+  text-shadow: 2px 2px 0 #000;
+  background-color: #4a4a4a;
+  border: 3px solid #000;
+  box-shadow: inset 3px 3px 0 #737373, inset -3px -3px 0 #2c2c2c;
+  border-radius: 8px;
+  padding: 12px 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  user-select: none;
+  transition: all 0.05s ease;
+}
+
+.mc-btn:hover {
+  background-color: #5a5a5a;
+  box-shadow: inset 3px 3px 0 #8c8c8c, inset -3px -3px 0 #3c3c3c;
+  color: #fff;
+}
+
+.mc-btn:active {
+  box-shadow: inset -3px -3px 0 #8c8c8c, inset 3px 3px 0 #3c3c3c;
+  transform: translateY(2px);
+}
+
+/* Green Action Button */
+.mc-btn.green {
+  background-color: var(--color-mc-green);
+  box-shadow: inset 3px 3px 0 var(--color-mc-green-light), inset -3px -3px 0 var(--color-mc-green-dark);
+}
+
+.mc-btn.green:hover {
+  background-color: var(--color-mc-green-light);
+  box-shadow: inset 3px 3px 0 #6cca44, inset -3px -3px 0 var(--color-mc-green-dark);
+}
+
+/* Gold Premium Button */
+.mc-btn.gold {
+  background-color: #d97706;
+  box-shadow: inset 3px 3px 0 #fbbf24, inset -3px -3px 0 #92400e;
+}
+
+.mc-btn.gold:hover {
+  background-color: #f59e0b;
+  box-shadow: inset 3px 3px 0 #fde047, inset -3px -3px 0 #b45309;
+}
+
+/* Redstone Danger Button */
+.mc-btn.red {
+  background-color: #b91c1c;
+  box-shadow: inset 3px 3px 0 #f87171, inset -3px -3px 0 #7f1d1d;
+}
+
+.mc-btn.red:hover {
+  background-color: #dc2626;
+  box-shadow: inset 3px 3px 0 #fca5a5, inset -3px -3px 0 #991b1b;
+}
+
+/* Custom Minecraft Text Input */
+.mc-input {
+  font-family: var(--font-body);
+  font-size: 14px;
+  background-color: #ffffff;
+  border: 3px solid var(--color-border);
+  border-radius: 2px;
+  color: #1f2937;
+  padding: 12px 16px;
+  width: 100%;
+  outline: none;
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s;
+}
+
+.mc-input:focus {
+  border-color: var(--color-diamond);
+}
+
+/* High Fidelity Minecraft Header / Navigation */
+.mc-navbar {
+  background: rgba(240, 247, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 3px solid #162a45;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(2, 136, 209, 0.08);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-pixel);
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.navbar-brand img {
+  width: 32px;
+  image-rendering: pixelated;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4b5563;
+  font-family: var(--font-vt);
+  font-size: 24px;
+  padding: 6px 12px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.navbar-menu a:hover,
+.navbar-menu a.active {
+  color: #111111;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px solid #ccd1d9;
+}
+
+/* User Stats Section */
+.navbar-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-vt);
+  font-size: 20px;
+}
+
+/* Level Indicator */
+.level-badge {
+  background-color: #059669;
+  border: 2px solid #34d399;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: #fff;
+}
+
+/* XP Bar */
+.xp-bar-container {
+  width: 120px;
+  height: 12px;
+  background-color: #1e293b;
+  border: 2px solid #000;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background-color: #34d399;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+/* Icon Placeholders (Using pure SVG Data-URIs for Pixel Art Look) */
+.icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.icon-map {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%23ab7f58' d='M2 1h12v14H2z'/%3E%3Cpath fill='%23e5c158' d='M3 2h10v12H3z'/%3E%3Cpath fill='%2322c55e' d='M5 5h3v3H5zm4 4h2v2H9z'/%3E%3C/svg%3E");
+}
+
+.icon-mission {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2' y='2' width='12' height='12' fill='%235c3e21'/%3E%3Crect x='4' y='4' width='8' height='8' fill='%23a1662f'/%3E%3Crect x='7' y='3' width='2' height='4' fill='%23ffd700'/%3E%3C/svg%3E");
+}
+
+.icon-inventory {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='3' width='14' height='10' fill='%23ab7f58'/%3E%3Crect x='2' y='5' width='12' height='2' fill='%23111'/%3E%3Crect x='7' y='4' width='2' height='3' fill='%23cccccc'/%3E%3C/svg%3E");
+}
+
+.icon-shop {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23fbbf24'/%3E%3Ccircle cx='8' cy='8' r='4' fill='%23d97706'/%3E%3C/svg%3E");
+}
+
+.icon-event {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='7' y='2' width='2' height='12' fill='%23ab7f58'/%3E%3Crect x='6' y='2' width='4' height='4' fill='%23dc2626'/%3E%3C/svg%3E");
+}
+
+.icon-coin {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23fbbf24'/%3E%3Ccircle cx='8' cy='8' r='4' fill='%23d97706'/%3E%3C/svg%3E");
+}
+
+.icon-gem {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon points='8,1 14,5 14,11 8,15 2,11 2,5' fill='%2310b981'/%3E%3Cpolygon points='8,3 12,6 12,10 8,13 4,10 4,6' fill='%2334d399'/%3E%3C/svg%3E");
+}
+
+/* User Profile Head/Avatar in Navbar */
+.navbar-avatar {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #ccd1d9;
+  border-radius: 4px;
+  cursor: pointer;
+  image-rendering: pixelated;
+  background-color: #e5e7eb;
+}
+
+.navbar-avatar:hover {
+  border-color: var(--color-diamond);
+  box-shadow: 0 0 8px var(--color-diamond);
+}
+
+/* Custom class-based icons to avoid text emojis */
+.icon-check,
+.icon-cross,
+.icon-lock {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  vertical-align: middle;
+}
+
+.icon-check {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23059669' d='M13.7 3.3a1 1 0 0 0-1.4 0L6 9.6 3.7 7.3a1 1 0 0 0-1.4 1.4l3 3a1 1 0 0 0 1.4 0l7-7a1 1 0 0 0 0-1.4z'/%3E%3C/svg%3E");
+}
+
+.icon-cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23dc2626' d='M13.7 3.3a1 1 0 0 0-1.4 0L8 7.6 3.7 3.3a1 1 0 0 0-1.4 1.4L6.6 9l-4.3 4.3a1 1 0 1 0 1.4 1.4L8 10.4l4.3 4.3a1 1 0 0 0 1.4-1.4L9.4 9l4.3-4.3a1 1 0 0 0 0-1.4z'/%3E%3C/svg%3E");
+}
+
+.icon-lock {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='4' y='7' width='8' height='6' rx='1' fill='%23787c85' stroke='%23000000' stroke-width='1'/%3E%3Cpath d='M5 7V5.5C5 3.8 6.3 2.5 8 2.5C9.7 2.5 11 3.8 11 5.5V7' fill='none' stroke='%23000000' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.icon-check-btn {
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23ffffff' d='M13.7 3.3a1 1 0 0 0-1.4 0L6 9.6 3.7 7.3a1 1 0 0 0-1.4 1.4l3 3a1 1 0 0 0 1.4 0l7-7a1 1 0 0 0 0-1.4z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  image-rendering: pixelated;
+}
+
+/* Responsive layout triggers */
+@media(max-width: 900px) {
+  .navbar-menu {
+    display: none; /* simple hamburger menu implementation later */
+  }
+}

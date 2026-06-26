@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyraCode — Workspace de Ejercicio</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/courses.css">
+  <link rel="stylesheet" href="/css/exercise.css">
+  
+  <!-- CodeMirror CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/css/css.min.js"></script>
+</head>
+<body>
+  <div id="particles-container"></div>
+
+  <!-- Main Layout Wrapper -->
+  <div class="dashboard-wrapper">
+
+    <!-- Left Sidebar (Same unifed sidebar design!) -->
+    <aside class="left-sidebar">
+      <div class="sidebar-logo" onclick="window.location.href='/'">
+        <div class="creeper-logo-icon"></div>
+        <span class="logo-title">LyraCode</span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="/courses" class="menu-item" id="nav-courses">
+          <span class="menu-icon icon-house-pixel"></span>
+          <span>Inicio</span>
+        </a>
+        <a href="/rutas" class="menu-item active" id="nav-routes">
+          <span class="menu-icon icon-map-pixel"></span>
+          <span>Rutas</span>
+        </a>
+        <a href="/misiones" class="menu-item" id="nav-missions">
+          <span class="menu-icon icon-sword-pixel"></span>
+          <span>Misiones</span>
+        </a>
+        <a href="/perfil" class="menu-item" id="nav-profile">
+          <span class="menu-icon icon-gear-pixel"></span>
+          <span>Ajustes</span>
+        </a>
+      </nav>
+
+      <!-- Daily Streak Sidebar Panel -->
+      <div class="streak-panel">
+        <div class="streak-header">
+          <strong>Racha diaria 🔥</strong>
+        </div>
+        <div class="streak-days">4 días</div>
+        <div class="streak-progress">
+          <div class="streak-block active"></div>
+          <div class="streak-block active"></div>
+          <div class="streak-block active"></div>
+          <div class="streak-block"></div>
+          <div class="streak-chest"></div>
+        </div>
+        <span class="streak-footer">¡Sigue así!</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel Area -->
+    <div class="main-content">
+      
+      <!-- Top Stats Header -->
+      <header class="top-stats-header">
+        <div class="stats-right">
+          <div class="stat-item">
+            <span class="icon icon-coin"></span>
+            <span id="stat-coins">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="icon icon-gem"></span>
+            <span id="stat-gems">0</span>
+          </div>
+          <div class="stat-item user-level-stat">
+            <span class="level-badge" id="stat-level">Nivel 1</span>
+            <div class="xp-bar-container">
+              <div class="xp-bar-fill" id="stat-xp-bar"></div>
+            </div>
+            <span id="stat-xp">0 XP</span>
+          </div>
+          <img class="navbar-avatar" id="stat-avatar" src="" alt="Avatar" title="Cerrar Sesión" onclick="logout()">
+        </div>
+      </header>
+
+      <!-- Content Grid -->
+      <main class="dashboard-grid">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb-nav">
+          <a href="/courses">Rutas</a> <span class="breadcrumb-separator">&gt;</span> 
+          <a href="" id="breadcrumb-course-link">HTML</a> <span class="breadcrumb-separator">&gt;</span> 
+          <span class="active-crumb">Ejercicios</span>
+        </nav>
+
+        <div class="exercise-workspace-layout">
+          
+          <!-- Column 1: Sidebar Panel (Rewards only, list hidden) -->
+          <div class="workspace-sidebar-panel">
+            <div class="exercise-list-box mc-panel" style="display: none;">
+              <h3>Ejercicios</h3>
+              <ul class="exercises-nav-list" id="exercises-nav-list">
+                <!-- Loaded dynamically -->
+              </ul>
+            </div>
+
+            <div class="exercise-rewards-box mc-panel">
+              <h3>Recompensas</h3>
+              <div class="rewards-list-vertical">
+                <div class="reward-pill">
+                  <span class="reward-icon icon-gem" style="background-color: transparent; filter: brightness(1.2);"></span>
+                  <span>+50 XP</span>
+                </div>
+                <div class="reward-pill">
+                  <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/EMERALD.png" alt="Esmeraldas" class="reward-pill-image">
+                  <span>+5 Esmeraldas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Editor Workspace Panel -->
+          <div class="workspace-editor-panel mc-panel">
+            <div class="workspace-details-header">
+              <h2 id="exercise-step-label">Ejercicio 1 de 3</h2>
+              <span class="step-counter" id="exercise-title-badge">Tu primer título</span>
+            </div>
+
+            <div class="exercise-instructions-box">
+              <h3>Descripción</h3>
+              <p id="exercise-desc">Cargando descripción del ejercicio...</p>
+              
+              <h3 style="margin-top: 12px;">Instrucciones:</h3>
+              <p id="exercise-instructions">Cargando instrucciones...</p>
+            </div>
+
+            <div class="editor-pane">
+              <div class="pane-header">Editor de código</div>
+              <div id="codemirror-wrapper"></div>
+            </div>
+
+            <div class="workspace-actions-bar" style="margin-top: 20px;">
+              <button class="mc-btn" id="btn-back" onclick="goBackToCourse()">Anterior</button>
+            </div>
+          </div>
+
+          <!-- Column 3: Preview and Result Panel -->
+          <div class="workspace-preview-panel">
+            <!-- Top card: Vista previa (Minecraft Landscape) -->
+            <div class="preview-pane mc-panel" style="margin-bottom: 20px; padding: 0; overflow: hidden; border: 1.5px solid #1b2d3d; border-radius: 14px;">
+              <div class="pane-header" style="border-bottom: 1.5px solid #1b2d3d; padding: 10px 14px; font-weight: bold; font-size: 11px; color: #b0b8c4; letter-spacing: 1px;">Vista previa</div>
+              <div class="pixel-illustration" style="height: 150px; background-image: url('/assets/minecraft_night_bg.png'); background-size: cover; background-position: center 30%;"></div>
+            </div>
+
+            <!-- Bottom card: Resultado (Live Iframe + Verificar button) -->
+            <div class="result-pane mc-panel" style="display: flex; flex-direction: column; min-height: 250px; background: rgba(0, 0, 0, 0.65); border: 1.5px solid #1b2d3d; border-radius: 14px; padding: 20px; box-sizing: border-box;">
+              <div class="pane-header" style="border-bottom: 1.5px solid #1b2d3d; padding: 10px 14px; font-weight: bold; font-size: 11px; color: #b0b8c4; letter-spacing: 1px; margin-bottom: 15px; margin-top: -20px; margin-left: -20px; margin-right: -20px; background: rgba(7,17,29,0.8);">Resultado</div>
+              <div class="preview-container" style="flex-grow: 1; background-color: #ffffff; border-radius: 6px; overflow: hidden; min-height: 120px; border: 1.5px solid #1b2d3d;">
+                <iframe id="live-preview" sandbox="allow-scripts allow-same-origin" style="width: 100%; height: 100%; border: none; background-color: #ffffff;"></iframe>
+              </div>
+              
+              <!-- Validation Feedback Box -->
+              <div class="feedback-box error" id="feedback-error-box" style="display: none; margin-top: 15px; font-size: 12px; padding: 8px 12px; border-radius: 6px; border: 1.5px solid #ef4444; background: rgba(239,68,68,0.1); color: #f87171;"></div>
+              <div class="feedback-box success" id="feedback-success-box" style="display: none; margin-top: 15px; font-size: 12px; padding: 8px 12px; border-radius: 6px; border: 1.5px solid #10b981; background: rgba(16,185,129,0.1); color: #34d399;">¡Excelente trabajo! Has completado la validación correctamente.</div>
+
+              <div class="workspace-actions-bar" style="margin-top: 15px; border-top: none; padding-top: 0; display: flex; justify-content: flex-end;">
+                <button class="mc-btn green" id="btn-verify" onclick="verifyExerciseCode()" style="width: 100%; justify-content: center;">Verificar</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/particles.js"></script>
+  <script src="/js/exercise.js"></script>
+</body>
+</html>

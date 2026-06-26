@@ -1,0 +1,199 @@
+/* LyraCode Final Project Workspace CSS — Premium RTX Dark Theme */
+
+.project-workspace-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .project-workspace-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workspace-sidebar-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Glassmorphism sidebar panels */
+.req-checklist-box, .rewards-widget {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid #1b2d3d;
+  border-radius: 14px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.req-checklist-box h3, .rewards-widget h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  border-bottom: 1.5px solid #1b2d3d;
+  padding-bottom: 10px;
+}
+
+/* Requirements list */
+.req-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.req-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(7, 17, 29, 0.4);
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #1b2d3d;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #b0b8c4;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.req-item.passed {
+  border-color: #63ff3f;
+  color: #63ff3f;
+  background: rgba(99, 255, 63, 0.05);
+  box-shadow: 0 0 10px rgba(99, 255, 63, 0.05);
+}
+
+.req-icon {
+  width: 14px;
+  height: 14px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.req-item .req-icon.icon-cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 3 l10 10 M13 3 l-10 10' stroke='%23ef4444' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.req-item.passed .req-icon.icon-check {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 9 l4 4 l7 -8' fill='none' stroke='%2363ff3f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* Reward Widget rows */
+.reward-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(7, 17, 29, 0.4);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #1b2d3d;
+  margin-bottom: 8px;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: #ffffff;
+}
+
+/* Main Workspace Editor Panel */
+.workspace-editor-panel {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid #1b2d3d;
+  border-radius: 14px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.workspace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1.5px solid #1b2d3d;
+  padding-bottom: 12px;
+}
+
+/* Code Editor and Live Preview Panel split */
+.code-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+@media(max-width: 900px) {
+  .code-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.editor-pane, .preview-pane {
+  background: rgba(5, 10, 18, 0.7);
+  border: 1.5px solid #1b2d3d;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 340px;
+}
+
+.pane-header {
+  background: rgba(7, 17, 29, 0.8);
+  border-bottom: 1.5px solid #1b2d3d;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #b0b8c4;
+  letter-spacing: 1px;
+}
+
+#codemirror-wrapper {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.CodeMirror {
+  height: 100% !important;
+  background: transparent !important;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+}
+
+.CodeMirror-gutters {
+  background: transparent !important;
+  border-right: 1px solid #1b2d3d !important;
+}
+
+.preview-container {
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+  background-color: #ffffff;
+}
+
+#live-preview {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #ffffff;
+}
+
+/* Action bar */
+.workspace-actions-bar {
+  border-top: 1.5px solid #1b2d3d;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}

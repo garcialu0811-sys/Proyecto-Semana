@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyraCode — Resultado del Proyecto</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/result.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="mc-navbar">
+    <div class="navbar-brand" onclick="window.location.href='/'">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%233c8527'/%3E%3Crect x='1' y='2' width='2' height='2' fill='%23111'/%3E%3Crect x='5' y='2' width='2' height='2' fill='%23111'/%3E%3Crect x='3' y='4' width='2' height='2' fill='%23111'/%3E%3Crect x='2' y='5' width='4' height='2' fill='%23111'/%3E%3C/svg%3E" alt="LyraCode Logo">
+      <span>LyraCode</span>
+    </div>
+    <a href="/perfil" id="nav-profile"><span class="icon icon-event"></span>Perfil</a></li>
+    </ul>
+    <div class="navbar-stats">
+      <div class="stat-item">
+        <span class="icon icon-coin"></span>
+        <span id="stat-coins">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="icon icon-gem"></span>
+        <span id="stat-gems">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="level-badge" id="stat-level">Nivel 1</span>
+        <div class="xp-bar-container">
+          <div class="xp-bar-fill" id="stat-xp-bar"></div>
+        </div>
+        <span id="stat-xp">0 XP</span>
+      </div>
+      <img class="navbar-avatar" id="stat-avatar" src="" alt="Avatar" title="Cerrar Sesión" onclick="logout()">
+    </div>
+  </header>
+
+  <div class="container main-layout fade-in">
+    <!-- Main Results Column -->
+    <main class="results-main">
+      <div class="mc-panel">
+        <h1 class="result-title text-success">¡Proyecto enviado con éxito!</h1>
+        <p class="result-subtitle">Tu proyecto ha sido verificado automáticamente por redstone.</p>
+
+        <!-- Star rating panel -->
+        <div class="rating-stars" id="rating-stars">
+          <!-- 5 SVG Stars loaded dynamically -->
+        </div>
+
+        <div class="result-details-grid">
+          <!-- Left side checklist -->
+          <div class="checklist-panel">
+            <h3 style="font-family: var(--font-pixel); font-size: 9px; margin-bottom: 12px;">REQUISITOS CUMPLIDOS</h3>
+            <ul class="completed-reqs" id="completed-reqs">
+              <!-- Dynamically populated checklist -->
+            </ul>
+          </div>
+
+          <!-- Right side code preview iframe -->
+          <div class="preview-panel">
+            <h3 style="font-family: var(--font-pixel); font-size: 9px; margin-bottom: 12px;">VISTA DE TU PROYECTO</h3>
+            <div class="preview-container">
+              <iframe id="project-preview-iframe" sandbox="allow-scripts allow-same-origin"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar with rewards obtained -->
+    <aside class="right-sidebar">
+      <div class="mc-panel text-center">
+        <h3 class="panel-title">Recompensas Obtenidas</h3>
+        
+        <!-- Chest SVG representation -->
+        <div class="chest-box float-anim" style="margin: 20px 0;">
+          <svg width="100" height="100" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated; margin:0 auto;">
+            <rect x="2" y="4" width="12" height="10" fill="#ab7f58" stroke="#000" stroke-width="0.5"/>
+            <!-- dark horizontal strip -->
+            <rect x="2" y="7" width="12" height="1.5" fill="#5c3e21"/>
+            <!-- silver lock lock latch -->
+            <rect x="7" y="6" width="2" height="3" fill="#cccccc" stroke="#000" stroke-width="0.5"/>
+            <rect x="7.5" y="7" width="1" height="1" fill="#444"/>
+            <!-- iron corner studs -->
+            <rect x="2" y="4" width="1.5" height="1.5" fill="#7f8c8d"/>
+            <rect x="12.5" y="4" width="1.5" height="1.5" fill="#7f8c8d"/>
+            <rect x="2" y="12.5" width="1.5" height="1.5" fill="#7f8c8d"/>
+            <rect x="12.5" y="12.5" width="1.5" height="1.5" fill="#7f8c8d"/>
+          </svg>
+        </div>
+
+        <div class="reward-pill xp">+500 XP</div>
+        <div class="reward-pill gold">+100 Monedas</div>
+        <div class="reward-pill gem">+10 Gemas</div>
+
+        <div class="next-step-box" style="margin-top: 24px; padding-top: 16px; border-top: 2px solid #202b3e;">
+          <h4 style="font-family: var(--font-pixel); font-size: 8px; margin-bottom: 8px;">¿QUÉ SIGUE?</h4>
+          <p style="font-size: 11px; color: var(--color-muted); line-height: 1.4;">Continúa tu aprendizaje de programación en la ruta de CSS para darle estilo a tus páginas.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/particles.js"></script>
+  <script src="/js/result.js"></script>
+</body>
+</html>

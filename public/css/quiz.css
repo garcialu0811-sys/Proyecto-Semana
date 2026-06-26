@@ -1,0 +1,196 @@
+/* LyraCode Quiz CSS — Estética Premium RTX */
+
+.quiz-workspace-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr 280px;
+  gap: 20px;
+  align-items: start;
+}
+
+@media(max-width: 1024px) {
+  .quiz-workspace-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workspace-sidebar-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quiz-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.quiz-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background-color: #0b0f19;
+  border: 2px solid #202b3e;
+  border-radius: 4px;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  cursor: pointer;
+  color: #8b949e;
+}
+
+.quiz-nav-item.active {
+  border-color: var(--color-diamond);
+  color: #fff;
+}
+
+.quiz-nav-item.completed {
+  border-color: var(--color-mc-green);
+  color: var(--color-mc-green-light);
+}
+
+.quiz-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #202b3e;
+  padding-bottom: 12px;
+}
+
+#quiz-title {
+  font-size: 16px;
+  color: #fff;
+}
+
+.question-box {
+  background-color: #111b27;
+  border-left: 4px solid var(--color-diamond);
+  padding: 16px;
+  border-radius: 0 4px 4px 0;
+}
+
+.question-number {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-diamond);
+  display: block;
+  margin-bottom: 8px;
+}
+
+#question-text {
+  font-size: 16px;
+  color: #fff;
+}
+
+/* Options stack vertically */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-btn {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  padding: 14px 20px;
+  background-color: #161b22;
+  border: 3px solid #30363d;
+  color: #c9d1d9;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.1s ease;
+  user-select: none;
+}
+
+.option-btn:hover {
+  border-color: #8b949e;
+  background-color: #21262d;
+  color: #fff;
+}
+
+.option-btn.selected-correct {
+  background-color: rgba(16, 185, 129, 0.15);
+  border-color: var(--color-emerald);
+  color: #a7f3d0;
+}
+
+.option-btn.selected-incorrect {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-color: var(--color-redstone);
+  color: #fca5a5;
+}
+
+/* Feedback Pane */
+.feedback-pane {
+  border: 3px solid #202b3e;
+  background-color: #0b0f19;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.feedback-status {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.feedback-pane.correct {
+  border-color: var(--color-emerald);
+}
+.feedback-pane.correct .feedback-status {
+  color: var(--color-emerald);
+}
+
+.feedback-pane.incorrect {
+  border-color: var(--color-redstone);
+}
+.feedback-pane.incorrect .feedback-status {
+  color: var(--color-redstone);
+}
+
+#feedback-explanation {
+  font-size: 13px;
+  color: #8b949e;
+  line-height: 1.6;
+}
+
+.quiz-actions {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #202b3e;
+  padding-top: 16px;
+}
+
+/* Sidebar decoration */
+.wolf-image-box {
+  background-color: #0b0f19;
+  border: 3px solid #202b3e;
+  padding: 16px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 10px auto;
+}
+
+.reward-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #0b0f19;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid #202b3e;
+  margin-bottom: 10px;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+}

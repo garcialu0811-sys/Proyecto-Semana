@@ -1,0 +1,192 @@
+/* LyraCode Landing Page Stylesheet */
+
+.landing-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #0c142c 0%, #030611 100%);
+}
+
+/* Background Layers */
+.bg-sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, #090c15 30%, #151c33 70%, #202b4d 100%);
+  z-index: 1;
+}
+
+.bg-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background-image: 
+    radial-gradient(1px 1px at 10% 20%, #fff, transparent),
+    radial-gradient(2px 2px at 30% 40%, #fff, transparent),
+    radial-gradient(1px 1px at 50% 15%, #fff, transparent),
+    radial-gradient(2px 2px at 70% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 85% 35%, #fff, transparent);
+  background-size: 200px 200px;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.bg-moon {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 64px;
+  height: 64px;
+  background-color: #e2e8f0;
+  box-shadow: 0 0 20px #e2e8f0, inset 6px 6px 0 #94a3b8;
+  border-radius: 4px;
+  z-index: 3;
+}
+
+.bg-mist {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(16, 24, 48, 0.8), transparent);
+  z-index: 4;
+}
+
+/* Forest, Village and River silhouettes using SVGs & gradients */
+.bg-forest {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background-image: 
+    repeating-linear-gradient(90deg, transparent 0, transparent 40px, #1a2816 40px, #1a2816 80px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 20px, #111a0e 20px, #111a0e 50px);
+  mask-image: linear-gradient(to top, black 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
+  opacity: 0.4;
+  z-index: 5;
+}
+
+.bg-river {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 40%;
+  height: 80px;
+  background: linear-gradient(to top, #1d4ed8, transparent);
+  transform: skewX(-30deg);
+  opacity: 0.3;
+  filter: blur(4px);
+  z-index: 6;
+}
+
+/* Centered content */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+}
+
+/* 3D Spinning Grass Block Logo! */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logo-cube {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg) rotateY(45deg);
+  animation: spinCube 12s infinite linear;
+  margin-bottom: 16px;
+}
+
+@keyframes spinCube {
+  from { transform: rotateX(-30deg) rotateY(0deg); }
+  to { transform: rotateX(-30deg) rotateY(360deg); }
+}
+
+.cube-face {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+}
+
+/* Grass top */
+.cube-face.top {
+  transform: rotateX(90deg) translateZ(32px);
+  background-color: #5b8731;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Dirt with grass fringe on front and right sides */
+.cube-face.front {
+  transform: translateZ(32px);
+  background: 
+    linear-gradient(to bottom, #5b8731 0%, #5b8731 25%, #866043 25%, #866043 100%);
+  border: 1px solid #000;
+}
+
+.cube-face.right {
+  transform: rotateY(90deg) translateZ(32px);
+  background: 
+    linear-gradient(to bottom, #5b8731 0%, #5b8731 25%, #866043 25%, #866043 100%);
+  border: 1px solid #000;
+}
+
+.logo-text {
+  font-family: var(--font-pixel);
+  font-size: 36px;
+  color: #fff;
+  text-shadow: 4px 4px 0 #000, 0 0 10px rgba(77, 238, 234, 0.4);
+}
+
+.hero-title {
+  font-size: 28px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.hero-title .highlight {
+  color: var(--color-mc-green-light);
+  font-size: 40px;
+  text-shadow: 4px 4px 0 #000;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: #94a3b8;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+}

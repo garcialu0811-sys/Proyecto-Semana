@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyraCode — Ajustes</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/courses.css">
+  <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+  <div id="particles-container"></div>
+
+  <!-- Main Layout Wrapper -->
+  <div class="dashboard-wrapper">
+
+    <!-- Left Sidebar (Unified) -->
+    <aside class="left-sidebar">
+      <div class="sidebar-logo" onclick="window.location.href='/'">
+        <div class="creeper-logo-icon"></div>
+        <span class="logo-title">LyraCode</span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="/courses" class="menu-item" id="nav-courses">
+          <span class="menu-icon icon-house-pixel"></span>
+          <span>Inicio</span>
+        </a>
+        <a href="/rutas" class="menu-item" id="nav-routes">
+          <span class="menu-icon icon-map-pixel"></span>
+          <span>Rutas</span>
+        </a>
+        <a href="/misiones" class="menu-item" id="nav-missions">
+          <span class="menu-icon icon-sword-pixel"></span>
+          <span>Misiones</span>
+        </a>
+        <a href="/perfil" class="menu-item active" id="nav-profile">
+          <span class="menu-icon icon-gear-pixel"></span>
+          <span>Ajustes</span>
+        </a>
+      </nav>
+
+      <!-- Daily Streak Sidebar Panel -->
+      <div class="streak-panel">
+        <div class="streak-header">
+          <strong>Racha diaria 🔥</strong>
+        </div>
+        <div class="streak-days" id="sidebar-streak-days">1 día</div>
+        <div class="streak-progress" id="sidebar-streak-progress">
+          <!-- Rendered dynamically -->
+        </div>
+        <span class="streak-footer">¡Sigue así!</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel Area -->
+    <div class="main-content">
+      
+      <!-- Top Stats Header -->
+      <header class="top-stats-header">
+        <div class="navbar-left-menu">
+        </div>
+
+        <div class="stats-right">
+          <div class="stat-item">
+            <span class="icon icon-coin"></span>
+            <span id="stat-coins">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="icon icon-gem"></span>
+            <span id="stat-gems">0</span>
+          </div>
+          <div class="stat-item user-level-stat">
+            <span class="level-badge" id="stat-level">Nivel 1</span>
+            <div class="xp-bar-container">
+              <div class="xp-bar-fill" id="stat-xp-bar"></div>
+            </div>
+            <span id="stat-xp">0 XP</span>
+          </div>
+          <img class="navbar-avatar" id="stat-avatar" src="" alt="Avatar" title="Cerrar Sesión" onclick="logout()">
+        </div>
+      </header>
+
+      <!-- Main Dashboard Grid -->
+      <main class="dashboard-grid fade-in">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb-nav">
+          <a href="/courses">Inicio</a> <span class="breadcrumb-separator">&gt;</span> 
+          <span class="active-crumb">Ajustes</span>
+        </nav>
+
+        <!-- Page Header -->
+        <header class="settings-page-header">
+          <div class="header-icon-box">
+            <svg viewBox="0 0 16 16" width="40" height="40" class="pixel-settings-gear">
+              <!-- Pixel settings gear -->
+              <rect x="6" y="0" width="4" height="16" fill="#7a8c9e"/>
+              <rect x="0" y="6" width="16" height="4" fill="#7a8c9e"/>
+              <rect x="2" y="2" width="12" height="12" fill="#586776"/>
+              <rect x="4" y="4" width="8" height="8" fill="#3c4652"/>
+              <rect x="6" y="6" width="4" height="4" fill="#000000" opacity="0.3"/>
+              <!-- borders -->
+              <rect x="5" y="0" width="1" height="16" fill="#111"/>
+              <rect x="10" y="0" width="1" height="16" fill="#111"/>
+              <rect x="0" y="5" width="16" height="1" fill="#111"/>
+              <rect x="0" y="10" width="16" height="1" fill="#111"/>
+            </svg>
+          </div>
+          <div class="header-text-box">
+            <h1>Ajustes</h1>
+            <p>Personaliza tu experiencia en LyraCode.</p>
+          </div>
+        </header>
+
+        <!-- Form for saving main profile fields -->
+        <form id="profile-settings-form" onsubmit="saveProfileChanges(event)">
+          <div class="settings-grid-layout">
+            
+            <!-- SECTION 1: PERFIL -->
+            <div class="settings-card profile-card">
+              <div class="card-header-with-action">
+                <div class="card-title-group">
+                  <h2>Perfil</h2>
+                  <p class="card-subtitle">Información básica de tu cuenta.</p>
+                </div>
+                <button type="submit" class="mc-btn green" id="save-profile-btn">Guardar cambios</button>
+              </div>
+
+              <div class="profile-card-content">
+                <!-- Left: Steve avatar box -->
+                <div class="profile-left-side">
+                  <div class="avatar-frame-wrapper">
+                    <div class="avatar-pixel-frame" id="settings-avatar-preview">
+                      <!-- Render SVG avatar skin face -->
+                    </div>
+                  </div>
+                  <button type="button" class="mc-btn" onclick="openAvatarModal()">
+                    <svg viewBox="0 0 16 16" width="12" height="12" style="margin-right: 6px; fill: currentColor;">
+                      <path d="M11 1l4 4-9 9H2v-4z"/>
+                    </svg>
+                    Cambiar avatar
+                  </button>
+                </div>
+
+                <!-- Right side inputs & statistics -->
+                <div class="profile-right-side">
+                  <div class="input-row">
+                    <div class="input-field-group">
+                      <label for="input-username">Nombre de usuario</label>
+                      <input type="text" id="input-username" class="settings-input" required value="LyraCoder">
+                    </div>
+                    <div class="input-field-group">
+                      <label for="input-email">Correo electrónico</label>
+                      <input type="email" id="input-email" class="settings-input" required value="lyracoder@email.com">
+                    </div>
+                  </div>
+
+                  <div class="profile-stats-row">
+                    <!-- Nivel shield and progress -->
+                    <div class="level-stats-container">
+                      <div class="level-shield-badge">
+                        <svg viewBox="0 0 16 16" width="36" height="36" class="pixel-shield">
+                          <polygon points="1,2 15,2 15,9 8,15 1,9" fill="#1b2d3d" stroke="#6CFF3F" stroke-width="1"/>
+                          <polygon points="3,4 13,4 13,8 8,13 3,8" fill="#0b1724"/>
+                        </svg>
+                        <span id="profile-level-badge-value">7</span>
+                      </div>
+                      <div class="level-xp-details">
+                        <div class="level-rank-name" id="profile-rank-name">Aprendiz</div>
+                        <div class="level-xp-text" id="profile-xp-text">2,450 / 3,000 XP</div>
+                        <div class="level-xp-bar-container">
+                          <div class="level-xp-bar-fill" id="profile-xp-bar-fill" style="width: 81.6%;"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Member since card -->
+                    <div class="member-date-container">
+                      <div class="member-date-icon-box">
+                        <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/CLOCK.png" alt="Reloj" class="pixel-clock-icon">
+                      </div>
+                      <div class="member-date-details">
+                        <span class="member-label">Miembro desde</span>
+                        <span class="member-date-value" id="profile-member-date">15 de marzo de 2025</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 2: PREFERENCIAS DE APRENDIZAJE -->
+            <div class="settings-card learning-preferences-card">
+              <h2>Preferencias de aprendizaje</h2>
+              <p class="card-subtitle">Personaliza cómo aprendes.</p>
+
+              <div class="preference-section-item">
+                <label>Tema de la interfaz</label>
+                <div class="theme-selection-grid">
+                  
+                  <!-- Claro Theme Button -->
+                  <div class="theme-option-card active" id="theme-btn-claro" onclick="setInterfaceTheme('claro')">
+                    <div class="theme-card-check">
+                      <svg viewBox="0 0 8 8" width="10" height="10" fill="#6CFF3F">
+                        <rect x="2" y="5" width="4" height="2"/>
+                        <rect x="5" y="2" width="2" height="4"/>
+                      </svg>
+                    </div>
+                    <div class="theme-icon-box">
+                      <!-- Pixel Sun -->
+                      <svg viewBox="0 0 16 16" width="32" height="32" class="pixel-sun">
+                        <rect x="6" y="6" width="4" height="4" fill="#ffbe33"/>
+                        <rect x="7" y="3" width="2" height="2" fill="#ffbe33"/>
+                        <rect x="7" y="11" width="2" height="2" fill="#ffbe33"/>
+                        <rect x="3" y="7" width="2" height="2" fill="#ffbe33"/>
+                        <rect x="11" y="7" width="2" height="2" fill="#ffbe33"/>
+                        <rect x="6" y="5" width="4" height="6" fill="none" stroke="#e0a100" stroke-width="1"/>
+                      </svg>
+                    </div>
+                    <span class="theme-label-text">Claro</span>
+                  </div>
+
+                  <!-- Oscuro Theme Button -->
+                  <div class="theme-option-card" id="theme-btn-oscuro" onclick="setInterfaceTheme('oscuro')">
+                    <div class="theme-card-check">
+                      <svg viewBox="0 0 8 8" width="10" height="10" fill="#6CFF3F">
+                        <rect x="2" y="5" width="4" height="2"/>
+                        <rect x="5" y="2" width="2" height="4"/>
+                      </svg>
+                    </div>
+                    <div class="theme-icon-box">
+                      <!-- Pixel Moon -->
+                      <svg viewBox="0 0 16 16" width="32" height="32" class="pixel-moon">
+                        <rect x="6" y="4" width="6" height="8" fill="#3EBEFF"/>
+                        <rect x="4" y="6" width="3" height="4" fill="#050A12"/>
+                        <rect x="5" y="5" width="4" height="6" fill="none" stroke="#258cc0" stroke-width="1"/>
+                      </svg>
+                    </div>
+                    <span class="theme-label-text">Oscuro</span>
+                  </div>
+
+                  <!-- Sistema Theme Button -->
+                  <div class="theme-option-card" id="theme-btn-sistema" onclick="setInterfaceTheme('sistema')">
+                    <div class="theme-card-check">
+                      <svg viewBox="0 0 8 8" width="10" height="10" fill="#6CFF3F">
+                        <rect x="2" y="5" width="4" height="2"/>
+                        <rect x="5" y="2" width="2" height="4"/>
+                      </svg>
+                    </div>
+                    <div class="theme-icon-box">
+                      <!-- Pixel Monitor -->
+                      <svg viewBox="0 0 16 16" width="32" height="32" class="pixel-monitor">
+                        <rect x="1" y="2" width="14" height="9" fill="#7a8c9e" stroke="#111" stroke-width="1"/>
+                        <rect x="2" y="3" width="12" height="7" fill="#1b2d3d"/>
+                        <rect x="6" y="11" width="4" height="3" fill="#586776" stroke="#111" stroke-width="1"/>
+                        <rect x="4" y="14" width="8" height="1"/>
+                      </svg>
+                    </div>
+                    <span class="theme-label-text">Sistema</span>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Difficulty selector dropdown -->
+              <div class="preference-control-group">
+                <div class="control-label-desc">
+                  <label for="difficulty-selector">Dificultad de los ejercicios</label>
+                  <span class="control-desc">Ajusta la dificultad recomendada para tus prácticas.</span>
+                </div>
+                <div class="minecraft-dropdown-container">
+                  <div class="dropdown-icon-left">
+                    <svg viewBox="0 0 16 16" width="16" height="16" class="pixel-bars">
+                      <rect x="2" y="10" width="3" height="4" fill="#6CFF3F"/>
+                      <rect x="6" y="6" width="3" height="8" fill="#6CFF3F"/>
+                      <rect x="10" y="2" width="3" height="12" fill="#6CFF3F"/>
+                    </svg>
+                  </div>
+                  <select id="difficulty-selector" class="minecraft-select-field" onchange="saveLearningPreference('difficulty', this.value)">
+                    <option value="facil">Fácil</option>
+                    <option value="intermedia" selected>Intermedia</option>
+                    <option value="dificil">Difícil</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Preferred language selector dropdown -->
+              <div class="preference-control-group">
+                <div class="control-label-desc">
+                  <label for="language-selector">Lenguaje preferido</label>
+                  <span class="control-desc">El lenguaje que verás por defecto en los ejemplos.</span>
+                </div>
+                <div class="minecraft-dropdown-container">
+                  <div class="dropdown-icon-left">
+                    <!-- Minecraft Item Icon representing book or javascript -->
+                    <span class="dropdown-badge-js">JS</span>
+                  </div>
+                  <select id="language-selector" class="minecraft-select-field" onchange="saveLearningPreference('language', this.value)">
+                    <option value="javascript" selected>JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="html">HTML / CSS</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- SECTION 3: NOTIFICACIONES -->
+            <div class="settings-card notifications-card">
+              <h2>Notificaciones</h2>
+              <p class="card-subtitle">Gestiona cómo y cuándo quieres recibir notificaciones.</p>
+
+              <div class="toggles-list">
+                
+                <!-- Misiones diarias -->
+                <div class="toggle-row-item">
+                  <div class="item-left-details">
+                    <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/BELL.png" alt="Bell" class="toggle-item-icon">
+                    <div class="toggle-text-block">
+                      <span class="toggle-item-title">Misiones diarias</span>
+                      <span class="toggle-item-desc">Recibe recordatorios de tus misiones diarias.</span>
+                    </div>
+                  </div>
+                  <label class="modern-switch">
+                    <input type="checkbox" id="notify-missions" checked onchange="saveNotificationToggle('missions', this.checked)">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <!-- Práctica diaria -->
+                <div class="toggle-row-item">
+                  <div class="item-left-details">
+                    <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/IRON_SWORD.png" alt="Sword" class="toggle-item-icon">
+                    <div class="toggle-text-block">
+                      <span class="toggle-item-title">Práctica diaria</span>
+                      <span class="toggle-item-desc">Recordatorios para mantener tu racha activa.</span>
+                    </div>
+                  </div>
+                  <label class="modern-switch">
+                    <input type="checkbox" id="notify-practice" checked onchange="saveNotificationToggle('practice', this.checked)">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <!-- Logros y recompensas -->
+                <div class="toggle-row-item">
+                  <div class="item-left-details">
+                    <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/NETHER_STAR.png" alt="Star" class="toggle-item-icon">
+                    <div class="toggle-text-block">
+                      <span class="toggle-item-title">Logros y recompensas</span>
+                      <span class="toggle-item-desc">Recibe notificaciones de nuevos logros.</span>
+                    </div>
+                  </div>
+                  <label class="modern-switch">
+                    <input type="checkbox" id="notify-achievements" checked onchange="saveNotificationToggle('achievements', this.checked)">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <!-- Comunidad -->
+                <div class="toggle-row-item">
+                  <div class="item-left-details">
+                    <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/WRITABLE_BOOK.png" alt="Book" class="toggle-item-icon">
+                    <div class="toggle-text-block">
+                      <span class="toggle-item-title">Comunidad</span>
+                      <span class="toggle-item-desc">Novedades, discusiones y actividades.</span>
+                    </div>
+                  </div>
+                  <label class="modern-switch">
+                    <input type="checkbox" id="notify-community" onchange="saveNotificationToggle('community', this.checked)">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <!-- Correos importantes -->
+                <div class="toggle-row-item">
+                  <div class="item-left-details">
+                    <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/MAP.png" alt="Map" class="toggle-item-icon">
+                    <div class="toggle-text-block">
+                      <span class="toggle-item-title">Correos importantes</span>
+                      <span class="toggle-item-desc">Actualizaciones importantes de la plataforma.</span>
+                    </div>
+                  </div>
+                  <label class="modern-switch">
+                    <input type="checkbox" id="notify-emails" checked onchange="saveNotificationToggle('emails', this.checked)">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- SECTION 4: EDITOR DE CÓDIGO -->
+            <div class="settings-card editor-settings-card">
+              <h2>Editor de código</h2>
+              <p class="card-subtitle">Configura tu entorno de programación.</p>
+
+              <div class="editor-controls-list">
+                
+                <!-- Tema del editor -->
+                <div class="editor-control-row">
+                  <div class="item-left-details">
+                    <svg viewBox="0 0 16 16" width="20" height="20" class="editor-icon pixel-brackets">
+                      <path d="M5 2H2v12h3v-2H4V4h1V2zm6 0h3v12h-3v-2h1V4h-1V2z" fill="#3EBEFF"/>
+                    </svg>
+                    <div class="toggle-text-block">
+                      <span class="editor-control-title">Tema del editor</span>
+                      <span class="toggle-item-desc">Ajusta el tema del editor de código.</span>
+                    </div>
+                  </div>
+                  <div class="minecraft-select-wrapper-small">
+                    <select id="editor-theme-selector" class="editor-select-small" onchange="saveEditorPreference('theme', this.value)">
+                      <option value="dracula" selected>Dracula</option>
+                      <option value="monokai">Monokai</option>
+                      <option value="github-dark">GitHub Dark</option>
+                      <option value="vs-light">VS Light</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Tamaño de fuente -->
+                <div class="editor-control-row">
+                  <div class="item-left-details">
+                    <svg viewBox="0 0 16 16" width="20" height="20" class="editor-icon pixel-text-size">
+                      <text x="2" y="12" font-family="'Press Start 2P', monospace" font-size="8" fill="#3EBEFF">AT</text>
+                    </svg>
+                    <div class="toggle-text-block">
+                      <span class="editor-control-title">Tamaño de fuente</span>
+                      <span class="toggle-item-desc">Ajusta el tamaño del texto en el editor.</span>
+                    </div>
+                  </div>
+                  <div class="minecraft-select-wrapper-small">
+                    <select id="editor-fontsize-selector" class="editor-select-small" onchange="saveEditorPreference('fontSize', this.value)">
+                      <option value="12px">12px</option>
+                      <option value="14px" selected>14px</option>
+                      <option value="16px">16px</option>
+                      <option value="18px">18px</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Sangría con espacios -->
+                <div class="editor-control-row">
+                  <div class="item-left-details">
+                    <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/CRAFTING_TABLE.png" alt="Crafting Table" class="editor-icon-img">
+                    <div class="toggle-text-block">
+                      <span class="editor-control-title">Sangría con espacios</span>
+                      <span class="toggle-item-desc">Usar espacios en lugar de tabulaciones.</span>
+                    </div>
+                  </div>
+                  <label class="modern-switch">
+                    <input type="checkbox" id="editor-spaces-indent" checked onchange="saveEditorPreference('spacesIndent', this.checked)">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <!-- Autocompletado -->
+                <div class="editor-control-row">
+                  <div class="item-left-details">
+                    <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/REDSTONE.png" alt="Redstone" class="editor-icon-img">
+                    <div class="toggle-text-block">
+                      <span class="editor-control-title">Autocompletado</span>
+                      <span class="toggle-item-desc">Mostrar sugerencias mientras escribes código.</span>
+                    </div>
+                  </div>
+                  <label class="modern-switch">
+                    <input type="checkbox" id="editor-autocomplete" checked onchange="saveEditorPreference('autocomplete', this.checked)">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <!-- Líneas de código -->
+                <div class="editor-control-row">
+                  <div class="item-left-details">
+                    <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/REDSTONE_REPEATER.png" alt="Repeater" class="editor-icon-img">
+                    <div class="toggle-text-block">
+                      <span class="editor-control-title">Líneas de código</span>
+                      <span class="toggle-item-desc">Mostrar números de línea en el editor.</span>
+                    </div>
+                  </div>
+                  <label class="modern-switch">
+                    <input type="checkbox" id="editor-linenumbers" checked onchange="saveEditorPreference('lineNumbers', this.checked)">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Stacked column on the right for security and support -->
+            <div class="stacked-right-column">
+              
+              <!-- SECTION 5: CUENTA Y SEGURIDAD -->
+              <div class="settings-card security-card">
+                <h2>Cuenta y seguridad</h2>
+                <p class="card-subtitle">Administra la seguridad de tu cuenta.</p>
+
+                <div class="list-actions-block">
+                  
+                  <!-- Cambiar contraseña -->
+                  <div class="action-row-item" onclick="openPasswordModal()">
+                    <div class="item-left-details">
+                      <svg viewBox="0 0 16 16" width="20" height="20" class="security-icon pixel-lock">
+                        <rect x="4" y="6" width="8" height="8" fill="#BFC7D3" stroke="#111" stroke-width="1"/>
+                        <path d="M5 6V4a3 3 0 0 1 6 0v2" fill="none" stroke="#BFC7D3" stroke-width="1.5"/>
+                      </svg>
+                      <div class="toggle-text-block">
+                        <span class="action-item-title">Cambiar contraseña</span>
+                        <span class="toggle-item-desc">Actualiza tu contraseña regularmente.</span>
+                      </div>
+                    </div>
+                    <button type="button" class="arrow-action-btn">
+                      <svg viewBox="0 0 8 8" width="8" height="12" fill="#BFC7D3">
+                        <polygon points="2,0 6,4 2,8"/>
+                      </svg>
+                    </button>
+                  </div>
+
+                  <!-- Ver sesiones activas -->
+                  <div class="action-row-item" onclick="openSessionsModal()">
+                    <div class="item-left-details">
+                      <svg viewBox="0 0 16 16" width="20" height="20" class="security-icon pixel-display">
+                        <rect x="2" y="2" width="12" height="8" fill="#BFC7D3" stroke="#111" stroke-width="1"/>
+                        <rect x="7" y="10" width="2" height="4" fill="#BFC7D3"/>
+                        <rect x="4" y="14" width="8" height="1"/>
+                      </svg>
+                      <div class="toggle-text-block">
+                        <span class="action-item-title">Ver sesiones activas</span>
+                        <span class="toggle-item-desc">Gestiona los dispositivos conectados.</span>
+                      </div>
+                    </div>
+                    <button type="button" class="arrow-action-btn">
+                      <svg viewBox="0 0 8 8" width="8" height="12" fill="#BFC7D3">
+                        <polygon points="2,0 6,4 2,8"/>
+                      </svg>
+                    </button>
+                  </div>
+
+                  <!-- Eliminar cuenta -->
+                  <div class="action-row-item danger-item" onclick="openDeleteAccountModal()">
+                    <div class="item-left-details">
+                      <svg viewBox="0 0 16 16" width="20" height="20" class="security-icon pixel-trash">
+                        <rect x="3" y="3" width="10" height="11" fill="#ef4444" stroke="#111" stroke-width="1"/>
+                        <rect x="2" y="1" width="12" height="2" fill="#ef4444"/>
+                        <rect x="6" y="5" width="1" height="7" fill="#111"/>
+                        <rect x="9" y="5" width="1" height="7" fill="#111"/>
+                      </svg>
+                      <div class="toggle-text-block">
+                        <span class="action-item-title red-highlight">Eliminar cuenta</span>
+                        <span class="toggle-item-desc">Eliminar tu cuenta permanentemente.</span>
+                      </div>
+                    </div>
+                    <button type="button" class="arrow-action-btn red-btn">
+                      <svg viewBox="0 0 8 8" width="8" height="12" fill="#ef4444">
+                        <polygon points="2,0 6,4 2,8"/>
+                      </svg>
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- SECTION 6: SOPORTE -->
+              <div class="settings-card support-card">
+                <h2>Soporte</h2>
+                <p class="card-subtitle">¿Necesitas ayuda?</p>
+
+                <div class="list-actions-block">
+                  
+                  <!-- Centro de ayuda -->
+                  <a class="action-row-item link-item" href="https://help.lyracode.com" target="_blank">
+                    <div class="item-left-details">
+                      <svg viewBox="0 0 16 16" width="20" height="20" class="support-icon pixel-question">
+                        <rect x="2" y="2" width="12" height="12" fill="#3EBEFF" stroke="#111" stroke-width="1"/>
+                        <text x="5" y="11" font-family="'Press Start 2P', monospace" font-size="8" fill="#111" font-weight="bold">?</text>
+                      </svg>
+                      <div class="toggle-text-block">
+                        <span class="action-item-title">Centro de ayuda</span>
+                        <span class="toggle-item-desc">Encuentra respuestas a tus preguntas.</span>
+                      </div>
+                    </div>
+                    <div class="external-link-arrow">
+                      <svg viewBox="0 0 8 8" width="10" height="10" fill="#BFC7D3">
+                        <polygon points="1,0 8,0 8,7 6,7 6,2 1,7"/>
+                      </svg>
+                    </div>
+                  </a>
+
+                  <!-- Contactar soporte -->
+                  <a class="action-row-item link-item" href="mailto:soporte@lyracode.com">
+                    <div class="item-left-details">
+                      <svg viewBox="0 0 16 16" width="20" height="20" class="support-icon pixel-headphones">
+                        <path d="M2 8v4h2V8H2zm10 0v4h2V8h-2zM3 8a5 5 0 0 1 10 0" fill="none" stroke="#3EBEFF" stroke-width="2"/>
+                        <circle cx="3" cy="10" r="2" fill="#3EBEFF"/>
+                        <circle cx="13" cy="10" r="2" fill="#3EBEFF"/>
+                      </svg>
+                      <div class="toggle-text-block">
+                        <span class="action-item-title">Contactar soporte</span>
+                        <span class="toggle-item-desc">Habla con nuestro equipo de soporte.</span>
+                      </div>
+                    </div>
+                    <div class="external-link-arrow">
+                      <svg viewBox="0 0 8 8" width="10" height="10" fill="#BFC7D3">
+                        <polygon points="1,0 8,0 8,7 6,7 6,2 1,7"/>
+                      </svg>
+                    </div>
+                  </a>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </form>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL: CAMBIAR AVATAR -->
+  <div class="modal-overlay" id="avatar-modal">
+    <div class="mc-panel modal-panel">
+      <h2 class="modal-title">Selecciona tu Avatar</h2>
+      <p class="modal-subtitle">Elige el personaje que te representará en la plataforma.</p>
+      
+      <div class="avatar-selection-grid">
+        <div class="avatar-select-card" id="avatar-opt-steve" onclick="selectAvatarOption('steve')">
+          <div class="avatar-preview-box steve"></div>
+          <span class="avatar-name">Steve</span>
+        </div>
+        <div class="avatar-select-card" id="avatar-opt-alex" onclick="selectAvatarOption('alex')">
+          <div class="avatar-preview-box alex"></div>
+          <span class="avatar-name">Alex</span>
+        </div>
+        <div class="avatar-select-card" id="avatar-opt-zombie" onclick="selectAvatarOption('zombie')">
+          <div class="avatar-preview-box zombie"></div>
+          <span class="avatar-name">Zombie</span>
+        </div>
+        <div class="avatar-select-card" id="avatar-opt-creeper" onclick="selectAvatarOption('creeper')">
+          <div class="avatar-preview-box creeper"></div>
+          <span class="avatar-name">Creeper</span>
+        </div>
+        <div class="avatar-select-card" id="avatar-opt-enderman" onclick="selectAvatarOption('enderman')">
+          <div class="avatar-preview-box enderman"></div>
+          <span class="avatar-name">Enderman</span>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="mc-btn" onclick="closeAvatarModal()">Cancelar</button>
+        <button class="mc-btn green" onclick="confirmAvatarSelection()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CAMBIAR CONTRASEÑA -->
+  <div class="modal-overlay" id="password-modal">
+    <div class="mc-panel modal-panel">
+      <h2 class="modal-title">Cambiar contraseña</h2>
+      <p class="modal-subtitle">Ingresa tus datos para actualizar tu clave de acceso.</p>
+      
+      <form id="password-change-form" onsubmit="savePasswordChanges(event)">
+        <div class="input-field-group">
+          <label for="input-current-password">Contraseña actual</label>
+          <input type="password" id="input-current-password" class="settings-input" required>
+        </div>
+        <div class="input-field-group" style="margin-top: 15px;">
+          <label for="input-new-password">Nueva contraseña</label>
+          <input type="password" id="input-new-password" class="settings-input" required minlength="6">
+        </div>
+        <div class="input-field-group" style="margin-top: 15px; margin-bottom: 20px;">
+          <label for="input-confirm-password">Confirmar nueva contraseña</label>
+          <input type="password" id="input-confirm-password" class="settings-input" required minlength="6">
+        </div>
+        
+        <div class="modal-actions">
+          <button type="button" class="mc-btn" onclick="closePasswordModal()">Cancelar</button>
+          <button type="submit" class="mc-btn green">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: VER SESIONES ACTIVAS -->
+  <div class="modal-overlay" id="sessions-modal">
+    <div class="mc-panel modal-panel">
+      <h2 class="modal-title">Sesiones activas</h2>
+      <p class="modal-subtitle">Estos son los dispositivos que han iniciado sesión recientemente en tu cuenta.</p>
+      
+      <div class="sessions-list-container">
+        <div class="session-device-item">
+          <svg viewBox="0 0 16 16" width="20" height="20" fill="#3EBEFF">
+            <rect x="2" y="2" width="12" height="8" stroke="#111" stroke-width="1"/>
+            <rect x="7" y="10" width="2" height="4"/>
+            <rect x="4" y="14" width="8" height="1"/>
+          </svg>
+          <div class="session-details">
+            <strong>Chrome en Windows (Esta sesión)</strong>
+            <span>IP: 192.168.1.45 — Madrid, España</span>
+          </div>
+          <span class="session-status-badge current">Activa</span>
+        </div>
+
+        <div class="session-device-item">
+          <svg viewBox="0 0 16 16" width="20" height="20" fill="#BFC7D3">
+            <rect x="4" y="1" width="8" height="14" rx="1" stroke="#111" stroke-width="1"/>
+            <circle cx="8" cy="13" r="1" fill="#111"/>
+          </svg>
+          <div class="session-details">
+            <strong>Safari en iPhone 14</strong>
+            <span>IP: 172.56.21.90 — Hace 2 horas</span>
+          </div>
+          <button class="mc-btn red btn-close-session" onclick="closeRemoteSession(this)">Cerrar</button>
+        </div>
+      </div>
+
+      <div class="modal-actions" style="margin-top: 20px;">
+        <button class="mc-btn w-100" onclick="closeSessionsModal()">Listo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ELIMINAR CUENTA -->
+  <div class="modal-overlay" id="delete-account-modal">
+    <div class="mc-panel modal-panel danger-border">
+      <h2 class="modal-title red-highlight">¿Eliminar tu cuenta?</h2>
+      <p class="modal-subtitle">Esta acción es irreversible y borrará todo tu progreso, monedas, gemas e inventario permanentemente.</p>
+      
+      <div class="input-field-group" style="margin-top: 15px; margin-bottom: 20px;">
+        <label for="input-delete-confirm">Escribe <strong style="color: #ef4444;">ELIMINAR</strong> para confirmar</label>
+        <input type="text" id="input-delete-confirm" class="settings-input border-red" placeholder="ELIMINAR" required>
+      </div>
+
+      <div class="modal-actions">
+        <button class="mc-btn" onclick="closeDeleteAccountModal()">Cancelar</button>
+        <button class="mc-btn red" onclick="confirmDeleteAccount()">Eliminar permanentemente</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/particles.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>

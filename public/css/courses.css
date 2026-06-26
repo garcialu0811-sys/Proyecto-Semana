@@ -1,0 +1,605 @@
+/* LyraCode Premium Widescreen Dashboard - RTX Dark Theme */
+
+body {
+  background-color: #050A12;
+  background-image: linear-gradient(rgba(5, 10, 18, 0.55), rgba(5, 10, 18, 0.55)), url('/assets/minecraft_night_bg.png');
+  background-size: cover;
+  background-position: right center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  font-family: var(--font-body);
+}
+
+/* Dashboard Layout Wrapper */
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Left Sidebar Menu */
+.left-sidebar {
+  width: 260px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 2px solid #1b2d3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.creeper-logo-icon {
+  width: 32px;
+  height: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2366ff33'/%3E%3Cstop offset='100%25' stop-color='%231b5e20'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='16' height='16' rx='2' fill='url(%23g)' stroke='%23000' stroke-width='1'/%3E%3Crect x='2' y='4' width='4' height='4' fill='%23111'/%3E%3Crect x='10' y='4' width='4' height='4' fill='%23111'/%3E%3Crect x='6' y='8' width='4' height='4' fill='%23111'/%3E%3Crect x='4' y='10' width='2' height='4' fill='%23111'/%3E%3Crect x='10' y='10' width='2' height='4' fill='%23111'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 8px rgba(99, 255, 63, 0.4));
+}
+
+.logo-title {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #b0b8c4;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1.5px solid transparent;
+}
+
+.menu-item:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.menu-item.active {
+  color: #63ff3f;
+  background: rgba(99, 255, 63, 0.08);
+  border-color: #63ff3f;
+  box-shadow: 0 0 12px rgba(99, 255, 63, 0.15);
+}
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+/* Icon classes loaded from raw.githubusercontent */
+.icon-house-pixel {
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/OAK_DOOR.png");
+}
+.icon-map-pixel {
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/MAP.png");
+}
+.icon-sword-pixel {
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/IRON_SWORD.png");
+}
+.icon-pickaxe-pixel {
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/DIAMOND_PICKAXE.png");
+}
+.icon-chest-pixel {
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/CHEST.png");
+}
+.icon-loot-chest-pixel {
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/ENDER_CHEST.png");
+}
+.icon-people-pixel {
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/PLAYER_HEAD.png");
+}
+.icon-trophy-pixel {
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/NETHER_STAR.png");
+}
+.icon-gear-pixel {
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/COMPASS.png");
+}
+
+/* Daily Streak Panel styling */
+.streak-panel {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #1b2d3d;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.streak-header {
+  font-size: 13px;
+  color: #b0b8c4;
+  margin-bottom: 6px;
+}
+
+.streak-days {
+  font-size: 24px;
+  font-weight: bold;
+  color: #63ff3f;
+  margin-bottom: 12px;
+  text-shadow: 0 0 8px rgba(99, 255, 63, 0.3);
+}
+
+.streak-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.streak-block {
+  width: 24px;
+  height: 16px;
+  background-color: rgba(27, 45, 61, 0.6);
+  border: 1px solid #1b2d3d;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.streak-block.active {
+  background-color: #63ff3f;
+  box-shadow: 0 0 10px rgba(99, 255, 63, 0.6);
+  border: 1px solid #63ff3f;
+}
+
+.streak-chest {
+  width: 26px;
+  height: 26px;
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/CHEST.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  margin-left: auto;
+}
+
+.streak-footer {
+  font-size: 11px;
+  color: #b0b8c4;
+}
+
+/* Main Content Wrapper */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Top stats header layout */
+.top-stats-header {
+  height: 70px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 40px;
+  background: transparent;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.stats-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-level-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Content Grid Container */
+.dashboard-grid {
+  padding: 0 40px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-sizing: border-box;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* Hero Section */
+.hero-welcome-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+}
+
+.hero-text-side {
+  max-width: 600px;
+}
+
+.welcome-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.icon-emerald-crystal {
+  width: 32px;
+  height: 32px;
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/EMERALD.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 10px rgba(99, 255, 63, 0.4));
+  flex-shrink: 0;
+}
+
+.welcome-title {
+  font-family: var(--font-vt);
+  font-size: 52px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.welcome-title .highlight {
+  color: #63ff3f;
+  text-shadow: 0 0 12px rgba(99, 255, 63, 0.3);
+}
+
+.welcome-subtitle {
+  font-size: 15px;
+  color: #b0b8c4;
+  margin: 0 0 28px 0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-actions .mc-btn {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-shadow: none;
+  border: 1.5px solid #1b2d3d;
+  box-shadow: none;
+}
+
+.hero-actions .mc-btn.green {
+  background: #2e7d32;
+  border-color: #2e7d32;
+  color: #ffffff;
+}
+
+.hero-actions .mc-btn.green:hover {
+  background: #3c8527;
+  border-color: #63ff3f;
+}
+
+.hero-actions .mc-btn.dark {
+  background: rgba(7, 17, 29, 0.65);
+  color: #ffffff;
+}
+
+.hero-actions .mc-btn.dark:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #b0b8c4;
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+/* Widescreen Hero Steve Companion Landscape */
+.welcome-hero-landscape {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  margin-left: auto;
+  margin-right: 50px;
+  position: relative;
+  height: 120px;
+  align-self: center;
+}
+
+.welcome-hero-landscape .hero-avatar-steve {
+  width: 52px;
+  height: 52px;
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/PLAYER_HEAD.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 10px rgba(99,255,63,0.45));
+}
+
+.welcome-hero-landscape .hero-avatar-wolf {
+  width: 44px;
+  height: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%23d1d1d1'/%3E%3Crect x='1' y='1' width='2' height='1' fill='%23808080'/%3E%3Crect x='5' y='1' width='2' height='1' fill='%23808080'/%3E%3Crect x='1' y='4' width='1' height='1' fill='%23000'/%3E%3Crect x='6' y='4' width='1' height='1' fill='%23000'/%3E%3Crect x='3' y='5' width='2' height='2' fill='%239e2a2b'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.welcome-hero-landscape .hero-avatar-campfire {
+  width: 48px;
+  height: 48px;
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/CAMPFIRE.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 12px rgba(255,190,51,0.5));
+}
+
+/* Course Cards Section */
+.course-routes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-title {
+  font-family: var(--font-vt);
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.courses-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 20px;
+}
+
+.course-route-card {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid #1b2d3d;
+  border-radius: 14px;
+  padding: 24px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.course-route-card.locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.course-route-card.locked:hover {
+  transform: none;
+  border-color: #1b2d3d;
+  box-shadow: none;
+}
+
+.course-route-card:hover:not(.locked) {
+  transform: translateY(-4px);
+  border-color: #63ff3f;
+  box-shadow: 0 4px 20px rgba(99, 255, 63, 0.15);
+}
+
+.course-block-icon {
+  width: 56px;
+  height: 56px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+.course-route-card:hover .course-block-icon {
+  transform: scale(1.1);
+}
+
+.course-route-name {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.course-route-progress {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.course-route-progress-bar {
+  height: 6px;
+  background: #050a12;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.course-route-progress-fill {
+  height: 100%;
+  background: #63ff3f;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.course-route-progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #b0b8c4;
+}
+
+/* Special Plus Card */
+.course-route-card.plus-card {
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-style: dashed;
+}
+
+.plus-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px dashed #b0b8c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #b0b8c4;
+  margin-bottom: 15px;
+}
+
+.course-route-card.plus-card:hover .plus-icon-circle {
+  border-color: #63ff3f;
+  color: #63ff3f;
+}
+
+/* Recommended Cards Section */
+.recommended-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.recommended-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media(max-width: 900px) {
+  .recommended-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recommended-card {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid #1b2d3d;
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.recommended-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.rec-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rec-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.rec-info {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.rec-info h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.rec-info p {
+  font-size: 12px;
+  color: #b0b8c4;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recommended-card .mc-btn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 14px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1.5px solid #1b2d3d;
+  background: rgba(7, 17, 29, 0.65);
+  color: #ffffff;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.recommended-card .mc-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #b0b8c4;
+}
+
+.recommended-card .mc-btn:active {
+  transform: translateY(1px);
+}

@@ -1,0 +1,667 @@
+/* Premium Widescreen Missions Styling - RTX Dark Theme */
+
+/* Sidebar unificado active states */
+.left-sidebar .menu-item.active {
+  color: #63ff3f !important;
+  background: rgba(99, 255, 63, 0.08) !important;
+  border-color: #63ff3f !important;
+  box-shadow: 0 0 12px rgba(99, 255, 63, 0.15) !important;
+}
+
+/* top-stats-header navbar menu */
+.navbar-left-menu {
+  flex-grow: 1;
+}
+
+.top-navbar-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.top-navbar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b5bcc7;
+  font-family: var(--font-vt);
+  font-size: 24px;
+  padding: 4px 12px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.top-navbar-menu a:hover,
+.top-navbar-menu a.active {
+  color: #63ff3f;
+  background: rgba(99, 255, 63, 0.05);
+  border-color: #63ff3f;
+  text-shadow: 0 0 8px rgba(99, 255, 63, 0.3);
+}
+
+/* Widescreen Panel Container */
+.missions-dashboard-wrapper {
+  background: rgba(5, 10, 18, 0.70) !important;
+  border: 1.5px solid #1B2D3D !important;
+  border-radius: 14px;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header Banner */
+.missions-header-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+  border: 1.5px solid #1B2D3D;
+  border-radius: 12px;
+  padding: 20px 24px;
+  gap: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.header-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.banner-sword-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 8px rgba(99, 255, 63, 0.3));
+}
+
+.banner-title {
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+}
+
+.banner-subtitle {
+  font-size: 13px;
+  color: #b5bcc7;
+  margin: 4px 0 0 0;
+  line-height: 1.4;
+}
+
+/* Hero Landscape (Steve/Companion or Portal) */
+.header-hero-landscape {
+  width: 260px;
+  height: 100px;
+  border-radius: 10px;
+  border: 1.5px solid #1B2D3D;
+  overflow: hidden;
+  position: relative;
+  background-image: linear-gradient(rgba(5, 10, 18, 0.5), rgba(5, 10, 18, 0.5)), url('/assets/minecraft_night_login_bg.png');
+  background-size: cover;
+  background-position: center bottom;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 15px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.hero-avatar-steve {
+  width: 44px;
+  height: 44px;
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/PLAYER_HEAD.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 8px rgba(99,255,63,0.3));
+}
+
+.hero-avatar-wolf {
+  width: 36px;
+  height: 36px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%23d1d1d1'/%3E%3Crect x='1' y='1' width='2' height='1' fill='%23808080'/%3E%3Crect x='5' y='1' width='2' height='1' fill='%23808080'/%3E%3Crect x='1' y='4' width='1' height='1' fill='%23000'/%3E%3Crect x='6' y='4' width='1' height='1' fill='%23000'/%3E%3Crect x='3' y='5' width='2' height='2' fill='%239e2a2b'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.hero-avatar-campfire {
+  width: 40px;
+  height: 40px;
+  background-image: url("https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/CAMPFIRE.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+/* Nether portal in banner landscape */
+.header-hero-landscape.nether-portal-bg {
+  background-image: linear-gradient(rgba(157, 76, 255, 0.25), rgba(5, 10, 18, 0.7)), url('/assets/minecraft_night_login_bg.png');
+  background-size: cover;
+  background-position: center bottom;
+  border-color: #a855ff;
+}
+
+.portal-glowing-core {
+  width: 32px;
+  height: 50px;
+  border: 3px solid #111;
+  background: linear-gradient(180deg, #9d4cff, #3b0764);
+  box-shadow: 0 0 15px #a855ff;
+  border-radius: 4px;
+  animation: pulse 1s infinite alternate;
+  margin-bottom: 5px;
+}
+
+/* Tabs */
+.missions-tabs-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-bottom: 2.5px solid #1B2D3D;
+  padding-bottom: 12px;
+}
+
+.missions-tab-list {
+  display: flex;
+  gap: 8px;
+}
+
+.mission-tab-btn {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1.5px solid #1B2D3D;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: #b5bcc7;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.mission-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.mission-tab-btn.active {
+  color: #63FF3F;
+  border-color: #63FF3F;
+  background: rgba(99, 255, 63, 0.08);
+  box-shadow: 0 0 10px rgba(99, 255, 63, 0.15);
+}
+
+.timer-countdown-row {
+  font-size: 13px;
+  color: #b5bcc7;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timer-green-highlight {
+  color: #63FF3F;
+  font-weight: bold;
+}
+
+/* Workspace content spacing */
+.missions-workspace-content {
+  margin-top: 5px;
+}
+
+/* VIEW 1 & 3: Horizontal Cards */
+.missions-horizontal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mission-h-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1.5px solid #1B2D3D;
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.mission-h-card:hover {
+  transform: translateY(-2px);
+  border-color: #63FF3F;
+  box-shadow: 0 4px 15px rgba(99, 255, 63, 0.15);
+}
+
+.mission-h-card.completed {
+  border-color: #63FF3F;
+}
+
+.mission-h-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.mission-h-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.mission-h-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.mission-h-title {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+}
+
+.mission-h-desc {
+  font-size: 12px;
+  color: #b5bcc7;
+  margin: 0;
+}
+
+/* Progress bar inside card */
+.progress-h-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 350px;
+  margin-top: 4px;
+}
+
+.progress-bar-mc {
+  height: 8px;
+  background: #050a12;
+  border: 1px solid #1B2D3D;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.progress-fill-mc {
+  height: 100%;
+  background: #63FF3F;
+  box-shadow: 0 0 8px rgba(99, 255, 63, 0.35);
+  transition: width 0.4s ease;
+}
+
+.progress-text-mc {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: #63FF3F;
+  min-width: 35px;
+  text-align: right;
+}
+
+/* Rewards section alignment on card */
+.mission-h-rewards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.rewards-caps-header {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  color: #b5bcc7;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.rewards-row-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reward-pill-mc {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(7, 17, 29, 0.4);
+  border: 1px solid #1B2D3D;
+  border-radius: 6px;
+  padding: 3px 6px;
+  font-size: 11px;
+  color: #ffffff;
+}
+
+.reward-pill-mc span {
+  font-family: var(--font-vt);
+  font-size: 15px;
+}
+
+.reward-pill-mc.xp-pill span {
+  color: #42bfff;
+}
+
+.reward-pill-mc.gold-pill span {
+  color: #ffbe33;
+}
+
+.reward-pill-mc.emerald-pill span {
+  color: #3cff76;
+}
+
+.reward-item-mc-icon {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.reward-special-text {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: #a855ff;
+  font-weight: bold;
+}
+
+.mission-h-action {
+  flex-shrink: 0;
+}
+
+/* Button dark standard style matching reference image */
+.mc-btn.dark-flat {
+  background: rgba(7, 17, 29, 0.65);
+  border: 1.5px solid #1B2D3D;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mc-btn.dark-flat:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: #b5bcc7;
+}
+
+/* VIEW 2: Vertical Grid cards */
+.missions-vertical-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+@media(max-width: 900px) {
+  .missions-vertical-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(max-width: 600px) {
+  .missions-vertical-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mission-v-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1.5px solid #1B2D3D;
+  border-radius: 12px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.mission-v-card:hover {
+  transform: translateY(-4px);
+  border-color: #63FF3F;
+  box-shadow: 0 4px 15px rgba(99, 255, 63, 0.1);
+}
+
+.mission-v-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin-bottom: 16px;
+}
+
+.mission-v-title {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+}
+
+.mission-v-desc {
+  font-size: 11px;
+  color: #b5bcc7;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+  height: 32px;
+  overflow: hidden;
+}
+
+.progress-v-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.progress-v-text {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: #b5bcc7;
+  margin-top: 6px;
+  display: block;
+}
+
+.mission-v-rewards {
+  width: 100%;
+  border-top: 1px solid #1B2D3D;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+/* VIEW 3: Mystical Nether Portal theme overrides */
+.mystical-theme-area {
+  background: radial-gradient(circle at center, rgba(168, 85, 255, 0.1) 0%, transparent 80%);
+}
+
+/* VIEW 4: Achievements Grid */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media(max-width: 1024px) {
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(max-width: 600px) {
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.achievement-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1.5px solid #1B2D3D;
+  border-radius: 12px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-2px);
+  border-color: #ffbe33;
+}
+
+.achievement-card.completed {
+  border-color: #63FF3F;
+}
+
+.achievement-card.locked {
+  filter: grayscale(1) brightness(0.6);
+  opacity: 0.6;
+}
+
+.achievement-badge {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin-bottom: 12px;
+}
+
+.achievement-title {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffbe33;
+  margin: 0 0 6px 0;
+}
+
+.achievement-card.completed .achievement-title {
+  color: #63FF3F;
+}
+
+.achievement-card.locked .achievement-title {
+  color: #b5bcc7;
+}
+
+.achievement-desc {
+  font-size: 11px;
+  color: #b5bcc7;
+  margin: 0 0 14px 0;
+  line-height: 1.4;
+  height: 32px;
+  overflow: hidden;
+}
+
+.achievement-status-row {
+  margin-top: auto;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.achievement-status-row.unlocked {
+  color: #63FF3F;
+}
+
+.achievement-status-row.locked-txt {
+  color: #787c85;
+}
+
+/* Bottom dynamic reward bar styling */
+.missions-bottom-reward-bar {
+  margin-top: 25px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1.5px solid #1B2D3D;
+  border-radius: 12px;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.bottom-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.bottom-bar-text {
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.bottom-bar-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 250px;
+}
+
+.bottom-chest-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-epic-chest-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+/* Creeper decoration asomando */
+.creeper-asomando-wrapper {
+  position: absolute;
+  right: 15px;
+  bottom: 0px;
+  width: 40px;
+  height: 50px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23469e38'/%3E%3Crect x='1' y='2' width='2' height='2' fill='%230a0f0d'/%3E%3Crect x='5' y='2' width='2' height='2' fill='%230a0f0d'/%3E%3Crect x='3' y='4' width='2' height='2' fill='%230a0f0d'/%3E%3Crect x='2' y='5' width='4' height='2' fill='%230a0f0d'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  animation: peekUp 3s ease-in-out infinite alternate;
+}
+
+@keyframes peekUp {
+  0% { transform: translateY(30px); }
+  100% { transform: translateY(0px); }
+}

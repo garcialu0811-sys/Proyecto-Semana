@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyraCode — Dashboard de Aventura</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/courses.css">
+</head>
+<body>
+  <div id="particles-container"></div>
+
+  <!-- Main Layout Wrapper -->
+  <div class="dashboard-wrapper">
+
+    <!-- Left Sidebar (60px to 250px) -->
+    <aside class="left-sidebar">
+      <div class="sidebar-logo" onclick="window.location.href='/'">
+        <div class="creeper-logo-icon"></div>
+        <span class="logo-title">LyraCode</span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="/courses" class="menu-item active" id="nav-courses">
+          <span class="menu-icon icon-house-pixel"></span>
+          <span>Inicio</span>
+        </a>
+        <a href="/rutas" class="menu-item" id="nav-routes">
+          <span class="menu-icon icon-map-pixel"></span>
+          <span>Rutas</span>
+        </a>
+        <a href="/misiones" class="menu-item" id="nav-missions">
+          <span class="menu-icon icon-sword-pixel"></span>
+          <span>Misiones</span>
+        </a>
+        <a href="/perfil" class="menu-item" id="nav-profile">
+          <span class="menu-icon icon-gear-pixel"></span>
+          <span>Ajustes</span>
+        </a>
+      </nav>
+
+      <!-- Daily Streak Sidebar Panel -->
+      <div class="streak-panel">
+        <div class="streak-header">
+          <strong>Racha diaria 🔥</strong>
+        </div>
+        <div class="streak-days">4 días</div>
+        <div class="streak-progress">
+          <div class="streak-block active"></div>
+          <div class="streak-block active"></div>
+          <div class="streak-block active"></div>
+          <div class="streak-block"></div>
+          <div class="streak-chest"></div>
+        </div>
+        <span class="streak-footer">¡Sigue así!</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel Area -->
+    <div class="main-content">
+      
+      <!-- Top Stats Header -->
+      <header class="top-stats-header">
+        <div class="stats-right">
+          <div class="stat-item">
+            <span class="icon icon-coin"></span>
+            <span id="stat-coins">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="icon icon-gem"></span>
+            <span id="stat-gems">0</span>
+          </div>
+          <div class="stat-item user-level-stat">
+            <span class="level-badge" id="stat-level">Nivel 1</span>
+            <div class="xp-bar-container">
+              <div class="xp-bar-fill" id="stat-xp-bar"></div>
+            </div>
+            <span id="stat-xp">0 XP</span>
+          </div>
+          <img class="navbar-avatar" id="stat-avatar" src="" alt="Avatar" title="Cerrar Sesión" onclick="logout()">
+        </div>
+      </header>
+
+      <!-- Content Grid -->
+      <main class="dashboard-grid">
+        
+        <!-- Hero Welcome Panel -->
+        <section class="hero-welcome-panel">
+          <div class="hero-text-side">
+            <div class="welcome-title-row">
+              <span class="icon-emerald-crystal"></span>
+              <h1 class="welcome-title" id="welcome-title-text">¡Bienvenido de vuelta, <span class="highlight">LyraCoder!</span></h1>
+            </div>
+            <p class="welcome-subtitle" id="welcome-subtitle-text">Hoy es un gran día para aprender algo nuevo y construir tu futuro en código.</p>
+            <div class="hero-actions" id="welcome-hero-actions">
+              <button class="mc-btn green" onclick="window.location.href='/courses'"><span class="btn-icon icon-sword-pixel"></span>Continuar aprendiendo</button>
+              <button class="mc-btn dark" onclick="window.location.href='/courses'"><span class="btn-icon icon-map-pixel"></span>Explorar rutas</button>
+            </div>
+          </div>
+          <div class="welcome-hero-landscape">
+            <div class="hero-avatar-steve"></div>
+            <div class="hero-avatar-wolf"></div>
+            <div class="hero-avatar-campfire float-anim"></div>
+          </div>
+        </section>
+
+        <!-- Course Route Section -->
+        <section class="course-routes-section">
+          <h2 class="section-title">Continúa tu aventura</h2>
+          <div class="courses-row" id="courses-list">
+            <!-- Loaded dynamically from courses.js -->
+            <div class="loading-spinner">Cargando cursos...</div>
+          </div>
+        </section>
+
+        <!-- Recommended Section -->
+        <section class="recommended-section">
+          <h2 class="section-title">Recomendado para ti</h2>
+          <div class="recommended-row">
+                        <!-- Card 1 -->
+            <div class="recommended-card">
+              <div class="rec-icon-wrapper">
+                <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/ENCHANTED_BOOK.png" alt="Práctica" class="rec-icon" id="rec-card1-icon">
+              </div>
+              <div class="rec-info">
+                <h3>Práctica diaria</h3>
+                <p>Resuelve ejercicios y mantén tu racha activa.</p>
+              </div>
+              <button class="mc-btn small-btn" onclick="window.location.href='/courses'">Comenzar ➔</button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="recommended-card">
+              <div class="rec-icon-wrapper">
+                <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/CRAFTING_TABLE.png" alt="Proyecto" class="rec-icon">
+              </div>
+              <div class="rec-info">
+                <h3>Proyecto sugerido</h3>
+                <p>Crea tu primera página web personal desde cero.</p>
+              </div>
+              <button class="mc-btn small-btn" onclick="window.location.href='/curso/html/proyecto'">Ver proyecto ➔</button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="recommended-card">
+              <div class="rec-icon-wrapper">
+                <img src="https://raw.githubusercontent.com/Owen1212055/mc-assets/main/item-assets/DIAMOND.png" alt="Quiz" class="rec-icon">
+              </div>
+              <div class="rec-info">
+                <h3>Quiz rápido</h3>
+                <p>Pon a prueba lo que sabes y gana XP extra.</p>
+              </div>
+              <button class="mc-btn small-btn" onclick="window.location.href='/curso/html/quiz/1'">Comenzar ➔</button>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/particles.js"></script>
+  <script src="/js/courses.js"></script>
+</body>
+</html>

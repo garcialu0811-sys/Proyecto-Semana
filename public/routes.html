@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyraCode — Ruta de Aprendizaje</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/courses.css">
+</head>
+<body>
+  <div id="particles-container"></div>
+
+  <!-- Main Layout Wrapper -->
+  <div class="dashboard-wrapper">
+
+    <!-- Left Sidebar (Same unifed sidebar design!) -->
+    <aside class="left-sidebar">
+      <div class="sidebar-logo" onclick="window.location.href='/'">
+        <div class="creeper-logo-icon"></div>
+        <span class="logo-title">LyraCode</span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="/courses" class="menu-item" id="nav-courses">
+          <span class="menu-icon icon-house-pixel"></span>
+          <span>Inicio</span>
+        </a>
+        <a href="/rutas" class="menu-item active" id="nav-routes">
+          <span class="menu-icon icon-map-pixel"></span>
+          <span>Rutas</span>
+        </a>
+        <a href="/misiones" class="menu-item" id="nav-missions">
+          <span class="menu-icon icon-sword-pixel"></span>
+          <span>Misiones</span>
+        </a>
+        <a href="/perfil" class="menu-item" id="nav-profile">
+          <span class="menu-icon icon-gear-pixel"></span>
+          <span>Ajustes</span>
+        </a>
+      </nav>
+
+      <!-- Daily Streak Sidebar Panel -->
+      <div class="streak-panel">
+        <div class="streak-header">
+          <strong>Racha diaria 🔥</strong>
+        </div>
+        <div class="streak-days">4 días</div>
+        <div class="streak-progress">
+          <div class="streak-block active"></div>
+          <div class="streak-block active"></div>
+          <div class="streak-block active"></div>
+          <div class="streak-block"></div>
+          <div class="streak-chest"></div>
+        </div>
+        <span class="streak-footer">¡Sigue así!</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel Area -->
+    <div class="main-content">
+      
+      <!-- Top Stats Header -->
+      <header class="top-stats-header">
+        <div class="stats-right">
+          <div class="stat-item">
+            <span class="icon icon-coin"></span>
+            <span id="stat-coins">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="icon icon-gem"></span>
+            <span id="stat-gems">0</span>
+          </div>
+          <div class="stat-item user-level-stat">
+            <span class="level-badge" id="stat-level">Nivel 1</span>
+            <div class="xp-bar-container">
+              <div class="xp-bar-fill" id="stat-xp-bar"></div>
+            </div>
+            <span id="stat-xp">0 XP</span>
+          </div>
+          <img class="navbar-avatar" id="stat-avatar" src="" alt="Avatar" title="Cerrar Sesión" onclick="logout()">
+        </div>
+      </header>
+
+      <!-- Content Grid -->
+      <main class="dashboard-grid">
+        
+        <!-- Hero Welcome Panel -->
+        <section class="hero-welcome-panel" style="background: transparent; border: none; box-shadow: none; margin-bottom: 25px;">
+          <div class="hero-text-side">
+            <div class="welcome-title-row">
+              <span class="icon-emerald-crystal"></span>
+              <h1 class="welcome-title" style="font-family: var(--font-vt); font-size: 52px; font-weight: 700; color: #ffffff; margin: 0; letter-spacing: 1px;">Ruta de <span class="highlight" style="color: #63ff3f;">Desarrollo Web</span></h1>
+            </div>
+            <p class="welcome-subtitle" style="font-size: 15px; color: #b0b8c4; margin: 0 0 15px 0;">Aprende desde cero y conviértete en un desarrollador épico.</p>
+            
+            <div class="route-progress-container" style="max-width: 400px; margin-top: 15px;">
+              <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: bold; margin-bottom: 6px; color: #ffffff;">
+                <span>Progreso de la Ruta</span>
+                <span id="route-overall-percent">38%</span>
+              </div>
+              <div class="course-route-progress-bar" style="height: 10px; background: #050a12; border-radius: 5px; overflow: hidden; border: 1.5px solid #1b2d3d;">
+                <div class="course-route-progress-fill" id="route-overall-fill" style="width: 38%; height: 100%; background: #63ff3f; box-shadow: 0 0 10px rgba(99, 255, 63, 0.5);"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Course Route Section (All 9 courses) -->
+        <section class="course-routes-section">
+          <div class="courses-row" id="routes-courses-list" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;">
+            <!-- Loaded dynamically from routes.js -->
+            <div class="loading-spinner">Cargando ruta de aprendizaje...</div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/particles.js"></script>
+  <script src="/js/routes.js"></script>
+</body>
+</html>

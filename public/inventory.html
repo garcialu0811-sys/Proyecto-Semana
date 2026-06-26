@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyraCode — Tienda e Inventario</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/inventory.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="mc-navbar">
+    <div class="navbar-brand" onclick="window.location.href='/'">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%233c8527'/%3E%3Crect x='1' y='2' width='2' height='2' fill='%23111'/%3E%3Crect x='5' y='2' width='2' height='2' fill='%23111'/%3E%3Crect x='3' y='4' width='2' height='2' fill='%23111'/%3E%3Crect x='2' y='5' width='4' height='2' fill='%23111'/%3E%3C/svg%3E" alt="LyraCode Logo">
+      <span>LyraCode</span>
+    </div>
+    <div class="navbar-stats">
+      <div class="stat-item">
+        <span class="icon icon-coin"></span>
+        <span id="stat-coins">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="icon icon-gem"></span>
+        <span id="stat-gems">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="level-badge" id="stat-level">Nivel 1</span>
+        <div class="xp-bar-container">
+          <div class="xp-bar-fill" id="stat-xp-bar"></div>
+        </div>
+        <span id="stat-xp">0 XP</span>
+      </div>
+      <img class="navbar-avatar" id="stat-avatar" src="" alt="Avatar" title="Cerrar Sesión" onclick="logout()">
+    </div>
+  </header>
+
+  <div class="container main-layout fade-in">
+    <!-- Main Inventory Column -->
+    <main class="inventory-main">
+      <div class="mc-panel">
+        <h1 class="page-title">Mercado de la Aldea</h1>
+        <p class="page-subtitle">Compra skins, adopta mascotas y equipa tus tesoros.</p>
+
+        <!-- Tabs -->
+        <div class="inventory-tabs">
+          <button class="inventory-tab active" id="tab-shop-btn" onclick="switchInventoryTab('shop')">Tienda</button>
+          <button class="inventory-tab" id="tab-inv-btn" onclick="switchInventoryTab('inventory')">Mi Inventario</button>
+        </div>
+
+        <div class="tab-contents">
+          <!-- Shop Pane -->
+          <div id="pane-shop" class="tab-pane active">
+            <div class="shop-grid" id="shop-grid">
+              <!-- Dynamically populated shop items -->
+            </div>
+          </div>
+
+          <!-- Inventory Pane -->
+          <div id="pane-inventory" class="tab-pane">
+            <div class="shop-grid" id="inventory-grid">
+              <!-- Dynamically populated user inventory items -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar with stats -->
+    <aside class="right-sidebar">
+      <div class="mc-panel text-center">
+        <h3 class="panel-title">Mascota Activa</h3>
+        <div class="pet-avatar-box float-anim" id="sidebar-pet-avatar">
+          <!-- SVG companion active pet display -->
+        </div>
+        <h4 id="sidebar-pet-name" style="margin-top: 12px; font-size: 12px;">Ninguna</h4>
+        <p style="font-size: 11px; color: var(--color-muted); margin-top: 6px;">Las mascotas te dan compañía visual durante las lecciones.</p>
+      </div>
+
+      <div class="mc-panel text-center" style="margin-top: 20px;">
+        <h3 class="panel-title">Tu Riqueza</h3>
+        <div style="font-family: var(--font-vt); font-size: 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 15px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="icon icon-coin"></span>
+            <span id="wealth-coins">0</span> Monedas
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="icon icon-gem"></span>
+            <span id="wealth-gems">0</span> Esmeraldas
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/particles.js"></script>
+  <script src="/js/inventory.js"></script>
+</body>
+</html>
