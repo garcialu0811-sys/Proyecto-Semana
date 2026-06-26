@@ -1,0 +1,34 @@
+[
+  {
+    "username": "lyracoder",
+    "email": "lyra@lyracode.com",
+    "password": "$2a$10$P6VnjblTnXk57K9faXj3huXSXDXS..nACZa5cB3UVjOpqf8VY2XnG",
+    "avatar": "steve",
+    "xp": 200,
+    "level": 2,
+    "coins": 300,
+    "gems": 15,
+    "streak": 1,
+    "lastLoginDate": "",
+    "inventory": [],
+    "achievements": [],
+    "activePet": "",
+    "createdAt": "2026-06-26T14:21:05.517Z"
+  },
+  {
+    "username": "delmy",
+    "email": "delmy@gmail.com",
+    "password": "$2a$10$e5F9UfzZCdu347Pp7pzhv.aX5gAZgpZopbwsellS.uolHsdy8a3S2",
+    "avatar": "steve",
+    "xp": 0,
+    "level": 1,
+    "coins": 0,
+    "gems": 0,
+    "streak": 0,
+    "lastLoginDate": "",
+    "inventory": [],
+    "achievements": [],
+    "activePet": "",
+    "createdAt": "2026-06-26T14:21:57.543Z"
+  }
+]

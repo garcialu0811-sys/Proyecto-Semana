@@ -11,6 +11,8 @@ const Project = require('../models/Project');
 const Mission = require('../models/Mission');
 const Achievement = require('../models/Achievement');
 const InventoryItem = require('../models/InventoryItem');
+const User = require('../models/User');
+const bcrypt = require('bcryptjs');
 
 const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/lyracode';
 
@@ -1127,6 +1129,7 @@ async function seedDB() {
     await Mission.deleteMany({});
     await Achievement.deleteMany({});
     await InventoryItem.deleteMany({});
+    await User.deleteMany({});
 
     console.log('Datos antiguos eliminados con éxito.');
 
@@ -1157,6 +1160,24 @@ async function seedDB() {
     // Seed Shop Items
     await InventoryItem.insertMany(shopItems);
     console.log('Artículos de la tienda sembrados con éxito.');
+
+    // Seed Users
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash('LyraPass123!', salt);
+    await User.create({
+      username: 'lyracoder',
+      email: 'lyra@lyracode.com',
+      password: hashedPassword,
+      xp: 200,
+      level: 2,
+      coins: 300,
+      gems: 15,
+      streak: 1,
+      avatar: 'steve',
+      inventory: [],
+      achievements: []
+    });
+    console.log('Usuario de prueba sembrado con éxito.');
 
     // Seed Missions
     await Mission.insertMany(missions);
